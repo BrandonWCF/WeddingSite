@@ -1,0 +1,37 @@
+@font-face {
+    font-family:"acme";
+    src: url("../Downloaded/acme/acmeregular.ttf") /* TTF file for CSS3 browsers */
+}
+
+@font-face {
+    font-family:"andika";
+    src: url("../Downloaded/acme/andikar.ttf") /* TTF file for CSS3 browsers */
+}
+h1,h3{
+	font-family:'acme', sans-serif;
+}
+h4 {
+	font-family: 'andika';
+}
+.bottom-bar{
+	color:white;
+	bottom:0px;
+}
+.address{
+	background-color:white;
+	margin: auto;
+}
+
+.contact-details{
+	background-color:red;
+	margin: auto;
+}
+h3 {
+    font-size: 26px;
+    font-weight:500;
+    text-align: left;
+    line-height: 100%;
+    border-bottom: 1px solid #484848;
+    padding-bottom: 5px;
+    margin-bottom:7px;
+}
