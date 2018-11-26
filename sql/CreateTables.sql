@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
 	first_name varchar(50) not null,
 	surname varchar(50) not null,
 	cell int(50),
+        attending boolean not null default false,
 	mail varchar(150),
 	password varchar(255) not null,
 	image_name varchar(255),
@@ -31,6 +32,7 @@ CREATE TABLE IF NOT EXISTS groups(
 	group_id int AUTO_INCREMENT,
 	group_name varchar(50) not null,
 	group_size int not null default 0,
+        group_max_size int not null default 2,
 	Primary Key (group_id)
 );
 

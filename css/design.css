@@ -25,14 +25,6 @@ body, html {
     min-height: 400px;
 }
 
-#modal02 {
-	left:10%;
-	top:10%;
-	width:80%;
-	height:80%;
-	opacity:0.9;
-}
-
 /* Third image (Contact) */
 .bgimg-3 {
     background-image: url("../images/IMG_8731.jpg");
