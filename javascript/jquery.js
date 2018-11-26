@@ -2,7 +2,7 @@ $(document).ready(function (e) {
 	$("#RSVP").submit(function(e) {
 	e.preventDefault();
 	$.ajax({
-		url: "http://localhost:80/WeddingSite/php/fileUploader.php",
+		url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
 		type: "POST",
 		data:  new FormData(this),
 		contentType: false,

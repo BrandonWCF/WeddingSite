@@ -12,10 +12,12 @@ if($db->connection != null)
 		if(!empty($_POST['firstName']) || !empty($_POST['surname']) || !empty($_POST['cell']) || !empty($_POST['mail']) || !empty($_POST['comment']) || !empty($_POST['kAcq']) || !empty($_POST['bAcq']) || !empty($_POST['group']))
 		{
 			$result .= 'Expected Post';
+                        $db->WriteUserToDatabase();
 		}
 		else
 		{
 			$result .= 'Unexpected Post';
+                        $db->WriteUserToDatabase();
 		}
 	}
 	$db = null;
