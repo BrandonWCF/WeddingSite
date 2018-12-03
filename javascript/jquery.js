@@ -13,6 +13,18 @@ $(document).ready(function (e) {
 		error: ajaxError(e)         
 		});
 	});
+           $.ajax({
+		url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
+		type: "POST",
+		data:  [{Test:"Test"}],
+		contentType: false,
+		cache: false,
+		processData:false,
+		beforeSend : ajaxSent(),
+		success: function(data){ajaxReceived(data)},
+		error: ajaxError(e)         
+		}); 
+       
 });
 
 function ajaxSent(){

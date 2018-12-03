@@ -6,14 +6,15 @@ CREATE TABLE IF NOT EXISTS users (
 	user_id int AUTO_INCREMENT,
 	first_name varchar(50) not null,
 	surname varchar(50) not null,
-	cell int(50),
+	cell varchar(13),
         attending boolean not null default false,
 	mail varchar(150),
-	password varchar(255) not null,
+	password varchar(255),
 	image_name varchar(255),
 	join_date date not null,
-	bran_acq boolean default false not null,
+	bran_acq boolean default false not null,        
 	kaj_acq boolean default false not null,
+        family boolean default false not null,
 	Primary Key (user_id)
 );
 

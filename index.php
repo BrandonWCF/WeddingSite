@@ -181,39 +181,35 @@
         <h2>RSVP</h2>
       </header>
 			<form id="RSVP" name="RSVP" class="w3-container" method="post">
-                            <select class="w3-select w3-margin-top" id="attending" name="attending">
-			<label>Please use the drop down to register your attendance</label>
+                            <label>Please use the drop down to register your attendance</label>
+                            <select class="w3-select" id="attending" name="attending">			
 				<option value="1" selected>Attending</option>
 				<option value="2">Not Attending</option>
 			</select>
-			<label>First Name</label>
-			<input class="w3-input" value="Brandon" type="text" id="firstName" name="firstName">
-			<label>Surname</label>
-			<input class="w3-input" value="Faul" type="text" id="surname" name="surname">
-			<label>Contact Details</label>
-			<input class="w3-input" value="0662435268" type="tel" id="cell" name="cell">
-			<label>Email Address</label>
-			<input class="w3-input" value="bwcfaul@gmail.com" type="email" id="mail" name="mail">
-                        <label>password</label>
-			<input class="w3-input" type="password" id="password" name="password">
-			<label>Comments</label>
-			<input class="w3-input w3-margin-bottom" value="Nuts are always good" type="text" id="comment" name="comment">
-			<input class="w3-check" type="checkbox" checked="checked" id="kAcq" value="kAcq" name="p_acq[]">
+                            <label>Please indicate relationship to the couple</label>
+                            <select class="w3-select" id="family" name="family">
+			
+				<option value="1" selected>Family</option>
+				<option value="2">Friend</option>
+			</select>
+                           <input class="w3-check" type="checkbox" checked="checked" id="kAcq" value="kAcq" name="p_acq[]">
 			<label>acquainted with Kajal</label>
 			<input class="w3-check" type="checkbox" id="bAcq" value="bAcq" name="p_acq[]">
 			<label>acquainted with Brandon</label>
                         <br>
-                        <label>Look at the attendance to see which group is sitting where</label>
-			<select class="w3-select w3-margin-top" name="gr" id="gr">			
-				<option value="" disabled selected>Choose your Group</option>
-				<option value="1">Group 1</option>
-				<option value="2">Group 2</option>
-				<option value="3">Group 3</option>
-				<option value="4">Group 4</option>
-				<option value="5">Group 5</option>
-			</select>
-                        <label>Add a photo of yourself so everyone can see who you are (optional)</label>
-                        <input type="file" id="photo" name="photo" accept="image/*" class="w3-input w3-margin-top">
+			<label>First Name</label>
+			<input class="w3-input" required value="Brandon" type="text" id="firstName" name="firstName">
+			<label>Surname</label>
+			<input class="w3-input" required value="Faul" type="text" id="surname" name="surname">
+			<label>Contact Details</label>
+			<input class="w3-input" value="0662435268" type="tel" id="cell" name="cell">
+			<label>Email Address</label>
+			<input class="w3-input" value="bwcfaul@gmail.com" type="email" id="mail" name="mail">
+			<label>Comments</label>
+			<input class="w3-input w3-margin-bottom" value="Snacks are always good" type="text" id="comment" name="comment">			
+                        <br>                     
+                        <label>Add a photo of yourself so we can get familiar with who will be attending (optional)</label>
+                        <input type="file" id="photo" name="photo" accept=".jpg,.png,.jpeg" class="w3-input w3-margin-top">
 			<button class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">RSVP</button>
 			</form>
 		<footer class="w3-container w3-brown">
