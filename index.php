@@ -9,6 +9,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="./css/design.css">
 <script src="./javascript/jquery.js"></script>
+<script src="./javascript/mapsfunctionality.js"></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkOPhhbiRakfxnbZiBTO1MKuYN883ynPA&callback=initMap">
+    </script>
 <body class="w3-brown">
 
 <!-- Navbar (sit on top) -->
@@ -234,7 +238,10 @@
     <div class="w3-col m4 w3-container">
       <img src="./images/weddingVenue.jpg" class="w3-image w3-round" style="width:100%">
     </div>
-    <div class="w3-col m8 w3-panel">
+      <div class="w3-col m4 w3-container" style="height:400px" id="map">
+      
+    </div>
+    <div class="w3-col m4 w3-panel">
       <div class="w3-large w3-margin-bottom">
         <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>85 R114 85 R114, Gauteng, Johannesburg<br>
 		<i class="fa fa-globe fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i><a href="http://everwoodweddings.co.za/">Everwood Weddings Website</a><br>
