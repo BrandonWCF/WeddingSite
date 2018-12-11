@@ -105,6 +105,9 @@
   <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
     <img id="img01" class="w3-image">
     <p id="caption" class="w3-opacity w3-large"></p>
+    <p class="w3-opacity w3-large">Registered under Kajal and Brandon</p>
+    <h1>Reference ID</h1>
+        <h2 id="refID">########</h2>
   </div>
 </div>
 
@@ -187,21 +190,21 @@
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row">
      
-    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
-  <img src="./images/mrpricehome_logo.png" alt="MrPHome" style="width:100%">
+    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
+  <img src="./images/mrpricehome_logo.png" alt="MrPHome" id="MrP" style="width:100%">
   <div class="w3-container w3-center">
     <p>Mr Price Home</p>
   </div>
 </div>
 
-    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
-  <img src="./images/DionWired.png" alt="MrDWired" style="width:100%">
+    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
+  <img src="./images/DionWired.png" alt="MrDWired" id="MrDWired" style="width:100%">
   <div class="w3-container w3-center">
     <p>Dion Wired</p>
   </div>
 </div>
-      <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
-  <img src="./images/h&h.png" alt="House&Home" style="width:100%;height:100px">
+      <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
+  <img src="./images/h&h.png" alt="House&Home" id="HomeandHouse" style="width:100%;height:100px">
   <div class="w3-container w3-center">
     <p>House & Home</p>
   </div>
@@ -209,23 +212,23 @@
       
   </div>
 
-  <div class="w3-row">
+  <div class="w3-row w3-margin">
      
-    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
-  <img src="./images/makro.png" alt="Makro" style="width:100%">
+    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
+  <img src="./images/makro.png" alt="Makro" id="Makro" style="width:100%">
   <div class="w3-container w3-center">
     <p>Makro</p>
   </div>
 </div>
 
-    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
-        <img src="./images/CB.png" alt="Carol&Boydes" style="width:100%">
+    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
+        <img src="./images/CB.png" alt="Carol&Boydes" id="CandB" style="width:100%">
             <div class="w3-container w3-center">
                 <p>Carol & Boydes</p>
         </div>
     </div>
-      <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
-  <img src="./images/game.png" alt="GAME" style="width:100%">
+      <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
+  <img src="./images/game.png" alt="GAME" id="GAME" style="width:100%">
   <div class="w3-container w3-center">
     <p>Game</p>
   </div>
@@ -298,7 +301,33 @@
 <script>
 // Modal Image Gallery
 function onClick(element) {
+    console.log(element);
   document.getElementById("img01").src = element.src;
+  console.log(element.id)
+  switch(element.id){
+    case'CandB':    
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'Makro':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'GAME':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'HomeandHouse':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'MrDWired':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'MrP':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    default:
+        console.log(element.id);
+                     
+      
+  }
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
