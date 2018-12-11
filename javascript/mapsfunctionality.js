@@ -3,17 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
+//var maps = null;
+var everwood = {lat: -26.018252, lng: 27.8848256};
+var maps = null;
 function initMap() {
-  // The location of everwood
-  // -26.018252,27.8848256
-  var everwood = {lat: -26.018252, lng: 27.8848256};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 12, center: everwood});
+  //Create a map object and center it on everwood
+  maps = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: everwood});
   // The marker, positioned at everwood
-  var marker = new google.maps.Marker({position: everwood, map: map});
+  //console.log(maps);
+  var marker = new google.maps.Marker({position: everwood, map: maps});
+}
+
+function focusEverwood() {
+    //console.log("Focusing Everwood");
+    var position = new google.maps.LatLng(everwood);
+    maps.setCenter(position);
 }
 
 initMap();

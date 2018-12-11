@@ -23,7 +23,7 @@
     </a>
     <a href="#home" class="w3-bar-item w3-button">HOME</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT US</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> ATTENDANCE GALLERY</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>
     <a href="#rsvp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pencil"></i> RSVP</a>
 	<a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT US</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
@@ -99,57 +99,6 @@
   </div>
 </div>
 
-<!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide">ATTENDANCE GALLERY</span>
-  </div>
-</div>
-
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64 " id="portfolio">
-  <h3 class="w3-center">Guest List:</h3>
-  <p class="w3-center"><em>Here are some of the lovely people who will be attending.<br> Click on the images to make them bigger</em></p><br>
-
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-row-padding w3-center">
-    <div class="w3-col m3">
-      <img src="/w3images/p1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bear closeup">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
-    </div>
-  </div>
-
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <img src="/w3images/p5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p7.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
-    </div>
-    
-  </div>
-</div>
-
 <!-- Modal for full size images on click-->
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
   <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
@@ -184,7 +133,7 @@
         <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
         <h2>RSVP</h2>
       </header>
-			<form id="RSVP" name="RSVP" class="w3-container" method="post">
+                        <form id="formRSVP" name="formRSVP">
                             <label>Please use the drop down to register your attendance</label>
                             <select class="w3-select" id="attending" name="attending">			
 				<option value="1" selected>Attending</option>
@@ -214,14 +163,77 @@
                         <br>                     
                         <label>Add a photo of yourself so we can get familiar with who will be attending (optional)</label>
                         <input type="file" id="photo" name="photo" accept=".jpg,.png,.jpeg" class="w3-input w3-margin-top">
-			<button class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">RSVP</button>
-			</form>
+                        <button id="RSVP" name="RSVP" type="button" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">RSVP</button>
+			
 		<footer class="w3-container w3-brown">
                 <p>Look forward to your attendance</p>
                 </footer>
 	</div>
-
+            </form>
     </div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">Shopping Registry</span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64 " id="portfolio">
+  <h3 class="w3-center">Registry List:</h3>
+  <p class="w3-center"><em>Here are the shops which we have set a Registry up with.<br> Click on the logo to reveal further details</em></p><br>
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-row">
+     
+    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
+  <img src="./images/mrpricehome_logo.png" alt="MrPHome" style="width:100%">
+  <div class="w3-container w3-center">
+    <p>Mr Price Home</p>
+  </div>
+</div>
+
+    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
+  <img src="./images/DionWired.png" alt="MrDWired" style="width:100%">
+  <div class="w3-container w3-center">
+    <p>Dion Wired</p>
+  </div>
+</div>
+      <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
+  <img src="./images/h&h.png" alt="House&Home" style="width:100%;height:100px">
+  <div class="w3-container w3-center">
+    <p>House & Home</p>
+  </div>
+</div>
+      
+  </div>
+
+  <div class="w3-row">
+     
+    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
+  <img src="./images/makro.png" alt="Makro" style="width:100%">
+  <div class="w3-container w3-center">
+    <p>Makro</p>
+  </div>
+</div>
+
+    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
+        <img src="./images/CB.png" alt="Carol&Boydes" style="width:100%">
+            <div class="w3-container w3-center">
+                <p>Carol & Boydes</p>
+        </div>
+    </div>
+      <div class="w3-card w3-sand w3-col m4" onclick="onClick(this)">
+  <img src="./images/game.png" alt="GAME" style="width:100%">
+  <div class="w3-container w3-center">
+    <p>Game</p>
+  </div>
+</div>
+      
+  </div>
+</div>
+
 <!-- Third Parallax Image with Portfolio Text -->
 <div class="bgimg-3 w3-display-container w3-opacity-min">
   <div class="w3-display-middle">
@@ -230,44 +242,45 @@
 </div>
 
 <!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
-  <h3 class="w3-center">WHERE IT'S ALL HAPPENING</h3>
-  <p class="w3-center"><em>We would love to hear from you too!</em></p>
+<div class="w3-content w3-container" id="contact">
+<h3 class="w3-center">WHERE IT'S ALL HAPPENING</h3>
+<p class="w3-center"><em>We would love to hear from you!</em></p>
 
-  <div class="w3-row w3-padding-32 w3-section">
-    <div class="w3-col m4 w3-container">
-      <img src="./images/weddingVenue.jpg" class="w3-image w3-round" style="width:100%">
-    </div>
-      <div class="w3-col m4 w3-container" style="height:400px" id="map">
-      
-    </div>
-    <div class="w3-col m4 w3-panel">
-      <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>85 R114 85 R114, Gauteng, Johannesburg<br>
-		<i class="fa fa-globe fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i><a href="http://everwoodweddings.co.za/">Everwood Weddings Website</a><br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Brandon Phone: +27 66 243 5268<br>
-		<i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: bwcfaul@gmail.com<br>
-		<i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Kajal Phone: +27 83 455 5568<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: kajal.tulsi@gmail.com<br>
-      </div>
-      <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave us a message:</p>
-      <form action="/action_page.php" target="_blank">
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-          </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-          </div>
-        </div>
-        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-        <button class="w3-button w3-sand w3-right w3-section w3-opacity w3-hover-opacity-off" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </form>
-    </div>
-  </div>
+<div class="w3-row w3-section">
+ <!-- <div class="w3-col m3 w3-container">
+    <img src="./images/weddingVenue.jpg" class="w3-image w3-round">
+  </div> -->
+<div class="w3-col m6 w3-container" >
+    <div id="map" style="height:400px"></div>    
 </div>
+<div class="w3-col m6 w3-panel">
+    <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right" onclick="focusEverwood()"></i>85 R114, Gauteng, Johannesburg<br>
+        <i class="fa fa-globe fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i><a href="http://everwoodweddings.co.za/">Everwood Weddings Website</a><br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Brandon Phone: +27 66 243 5268<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: bwcfaul@gmail.com<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Kajal Phone: +27 83 455 5568<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: kajal.tulsi@gmail.com<br>
+    </div>
+    <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave us a message:</p>
+    <form id="formMail" name="formMail">
+    <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+        <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name" id="Name">
+        </div>
+    <div class="w3-half">
+        <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email" id="Email">
+    </div>
+    </div>
+    <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message" id="Message">
+    <button id="sendMail" name="sendMail" type="button" class="w3-button w3-sand w3-right w3-section w3-opacity w3-hover-opacity-off">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+</div>
+    </form>
+</div>
+</div>
+
 <!-- Footer -->
 <footer class="w3-center w3-sand w3-padding-64">
   <a href="#home" class="w3-button w3-brown w3-opacity w3-hover-opacity-off"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
