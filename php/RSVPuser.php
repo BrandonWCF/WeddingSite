@@ -22,11 +22,10 @@ if($db->connection != null)
                             //picture was included
                             $pic = SavePicture();
                             if($pic == 'invalid file extension'){
-                                echo 'invalid file extension';
-                                return 0;
+                                echo 'invalid file extension';                                
                             }
                             else if($pic == FALSE){
-                                echo 'Failed to upload file';
+                                echo 'Failed to upload file';                                
                             }                            
                             else{
                                 $image = $pic;
@@ -61,7 +60,43 @@ if($db->connection != null)
                                 }
                             }
                         }
-                        $user = Array('FirstName'=>$_POST['firstName'],'surname'=>$_POST['surname'],'cell'=>$_POST['cell'],'attending'=>$attending,'mail'=>$_POST['mail'],'comment'=>$_POST['comment'],'kAcq'=>$kAcq,'bAcq'=>$bAcq, 'family'=>$family, 'imageName'=>$image);
+                        $user = Array('FirstName'=>$_POST['firstName'],
+                            'surname'=>$_POST['surname'],
+                            'cell'=>$_POST['cell'],
+                            'attending'=>$attending,
+                            'mail'=>$_POST['mail'],
+                            'comment'=>$_POST['comment'],
+                            'kAcq'=>$kAcq,
+                            'bAcq'=>$bAcq,
+                            'family'=>$family,
+                            'imageName'=>$image);
+                        
+                        if(!empty($_POST['pRSVP'])){
+                            $size = count($_POST['pRSVP']);
+                            $cacq = $_POST['pRSVP'];
+                            for($i=0;$i < $size;$i++){
+                                if($cacq[$i] == 'pRSVP'){
+                                    //User is signing up for additional partner too
+                                    if(!empty($_POST['pfirstName']) && !empty($_POST['psurname']) && !empty($_POST['pCell']) && !empty($_POST['pMail'])){
+                                        $user['pFirstName'] = $_POST['pfirstName'];
+                                        $user['psurname'] = $_POST['psurname'];
+                                        $user['pCell'] = $_POST['pCell'];
+                                        $user['pMail'] = $_POST['pMail'];
+                                        echo "pFirstName: ".$user['pFirstName']." "."psurname: ".$user['psurname']." "."pCell: ".$user['pCell']." "."pMail: ".$user['pMail']." ";
+                                        if(isset($_POST['cAttending'])){
+                                            $user['child'] = $_POST['cAttending'];
+                                        }
+                                    }
+                                    else{
+                                        echo 'RSVPing for partner but no details provided on form';
+                                        return 0;
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        
+                        
                         $result = $db->WriteUserToDatabase($user);
                         
 		}

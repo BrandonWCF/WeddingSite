@@ -1,6 +1,7 @@
 DROP DATABASE WeddingSite;
 CREATE DATABASE WeddingSite;
-
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS plusones;
 DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users (
 	user_id int AUTO_INCREMENT,
@@ -18,7 +19,6 @@ CREATE TABLE IF NOT EXISTS users (
 	Primary Key (user_id)
 );
 
-DROP TABLE IF EXISTS comments;
 CREATE TABLE IF NOT EXISTS comments(
 	comment_id int AUTO_INCREMENT,
 	comment_made varchar(255),
@@ -28,21 +28,14 @@ CREATE TABLE IF NOT EXISTS comments(
 	Foreign Key (user_id) REFERENCES users(user_id)
 );
 
-DROP TABLE IF EXISTS groups;
-CREATE TABLE IF NOT EXISTS groups(
-	group_id int AUTO_INCREMENT,
-	group_name varchar(50) not null,
-	group_size int not null default 0,
-        group_max_size int not null default 2,
-	Primary Key (group_id)
-);
-
-DROP TABLE IF EXISTS user_groups;
-CREATE TABLE IF NOT EXISTS user_groups(
-	user_group_id int AUTO_INCREMENT,
-	group_id int not null,
-	user_id int not null,
-	Primary Key (user_group_id),
-	Foreign Key (user_id) REFERENCES users(user_id),
-	Foreign Key (group_id) REFERENCES groups(group_id)
+CREATE TABLE IF NOT EXISTS plusones(
+	plusones_id int AUTO_INCREMENT,
+        user_id int not null,
+	plusones_first_name varchar(50) not null,
+	plusones_surname varchar(50) not null,
+	plusones_cell varchar(13),
+        plusones_mail varchar(150),
+        plusones_number_children int default 0,
+	Primary Key (plusones_id),
+        Foreign Key (user_id) REFERENCES users(user_id)
 );

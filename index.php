@@ -56,7 +56,7 @@
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
       <p><b><i class="fa fa-user w3-margin-right"></i>Kajal And Brandon</b></p><br>
-      <img src="./images/IMG_8715.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Us" width="500" height="333">
+      <img src="./images/IMG_8715.JPG" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Us" width="500" height="333">
     </div>
 
     <!-- Hide this text on small devices -->
@@ -148,24 +148,48 @@
 				<option value="1" selected>Family</option>
 				<option value="2">Friend</option>
 			</select>
-                           <input class="w3-check" type="checkbox" checked="checked" id="kAcq" value="kAcq" name="p_acq[]">
+                        <input class="w3-check" type="checkbox" checked="checked" id="kAcq" value="kAcq" name="p_acq[]">
 			<label>acquainted with Kajal</label>
 			<input class="w3-check" type="checkbox" id="bAcq" value="bAcq" name="p_acq[]">
 			<label>acquainted with Brandon</label>
                         <br>
 			<label>First Name</label>
-			<input class="w3-input" required value="Brandon" type="text" id="firstName" name="firstName">
+			<input class="w3-input" placeholder="Kajal" type="text" id="firstName" name="firstName">
 			<label>Surname</label>
-			<input class="w3-input" required value="Faul" type="text" id="surname" name="surname">
+			<input class="w3-input" placeholder="Tulsi" type="text" id="surname" name="surname">
 			<label>Contact Details</label>
-			<input class="w3-input" value="0662435268" type="tel" id="cell" name="cell">
+			<input class="w3-input" placeholder="0834555568" type="tel" id="cell" name="cell">
 			<label>Email Address</label>
-			<input class="w3-input" value="bwcfaul@gmail.com" type="email" id="mail" name="mail">
+			<input class="w3-input" placeholder="kajal.s.tusi@gmail.com" type="email" id="mail" name="mail">
 			<label>Comments</label>
-			<input class="w3-input w3-margin-bottom" value="Snacks are always good" type="text" id="comment" name="comment">			
+			<input class="w3-input w3-margin-bottom" placeholder="Snacks are always good" type="text" id="comment" name="comment">			
+                        <input class="w3-radio w3-margin-bottom" type="checkbox" name="pRSVP[]" id="pRSVP" value="pRSVP">
+                        <label>RSVP for Partner</label>
+                        <div id="partnerDetails" name="partnerDetails" style="display: none">
+                        <label>Partner First Name</label>
+			<input class="w3-input" required placeholder="Brandon" type="text" id="pfirstName" name="pfirstName">
+			<label>Partner Surname</label>
+			<input class="w3-input" required placeholder="Faul" type="text" id="psurname" name="psurname">
+			<label>Partner Contact Details</label>
+                        <input class="w3-radio w3-margin-bottom" type="checkbox" name="rCell" id="rCell" value="rCell">
+                        <label>same as above</label>
+			<input class="w3-input" placeholder="0662435268" type="tel" id="pCell" name="pCell">
+			<label>Partner Email Address</label>
+                        <input class="w3-radio w3-margin-bottom" type="checkbox" name="rMail" id="rMail" value="rMail">
+                        <label>same as above</label>
+			<input class="w3-input" placeholder="bwcfaul@gmail.com" type="email" id="pMail" name="pMail">
+                        <label>Number of Children attending</label>
+			<select class="w3-select" id="cAttending" name="cAttending">			
+				<option value="0" selected>0</option>
+                                <option value="1">1</option>
+				<option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">3+</option>
+			</select>
+                        </div>
                         <br>                     
                         <label>Add a photo of yourself so we can get familiar with who will be attending (optional)</label>
-                        <input type="file" id="photo" name="photo" accept=".jpg,.png,.jpeg" class="w3-input w3-margin-top">
+                        <input type="file" id="photo" name="photo" accept=".jpg,.png,.jpeg" class="w3-input">
                         <button id="RSVP" name="RSVP" type="button" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">RSVP</button>
 			
 		<footer class="w3-container w3-brown">
@@ -188,7 +212,7 @@
   <p class="w3-center"><em>Here are the shops which we have set a Registry up with.<br> Click on the logo to reveal further details</em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-row">
+  <div class="w3-row w3-margin">
      
     <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
   <img src="./images/mrpricehome_logo.png" alt="MrPHome" id="MrP" style="width:100%">
@@ -204,7 +228,7 @@
   </div>
 </div>
       <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
-  <img src="./images/h&h.png" alt="House&Home" id="HomeandHouse" style="width:100%;height:100px">
+  <img src="./images/h&amp;h.png" alt="House&Home" id="HomeandHouse" style="width:100%">
   <div class="w3-container w3-center">
     <p>House & Home</p>
   </div>
@@ -297,68 +321,6 @@
   </div>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
- 
-<script>
-// Modal Image Gallery
-function onClick(element) {
-    console.log(element);
-  document.getElementById("img01").src = element.src;
-  console.log(element.id)
-  switch(element.id){
-    case'CandB':    
-        document.getElementById("refID").innerHTML = '123456879';
-    break;
-    case'Makro':
-        document.getElementById("refID").innerHTML = '123456879';
-    break;
-    case'GAME':
-        document.getElementById("refID").innerHTML = '123456879';
-    break;
-    case'HomeandHouse':
-        document.getElementById("refID").innerHTML = '123456879';
-    break;
-    case'MrDWired':
-        document.getElementById("refID").innerHTML = '123456879';
-    break;
-    case'MrP':
-        document.getElementById("refID").innerHTML = '123456879';
-    break;
-    default:
-        console.log(element.id);
-                     
-      
-  }
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Modal RSVP
-function RSVPClick() {
-  document.getElementById("modal02").style.display = "block";
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-sand";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-sand", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
 
 </body>
 </html>
