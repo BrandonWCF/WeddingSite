@@ -39,5 +39,6 @@ body, html {
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
         min-height: 400px;
+        min-width: 499px;
     }
 }

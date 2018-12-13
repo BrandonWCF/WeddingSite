@@ -3,10 +3,17 @@
 //print_r($users);
 Class DatabaseHandler
 {
+/*
 private $servername = 'localhost';
 private $username = 'faulingi_brandon';
 private $password = 'bran-5496_436518';
 private $database = 'faulingi_wedding_database';
+public $connection = null;
+*/
+private $servername = 'localhost';
+private $username = 'brandon';
+private $password = 'P@ssword';
+private $database = 'wedding_database';
 public $connection = null;
 
 	function Connect()
@@ -118,7 +125,7 @@ public $connection = null;
         
         function fetchNamesOfAttendingUsers(){
             try{
-                $stmt = $this->connection->prepare("SELECT first_name, surname, family FROM users where attending = 1"); 
+                $stmt = $this->connection->prepare("SELECT family FROM users where attending = 1"); 
                 $stmt->execute();
                 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 $p = 0;

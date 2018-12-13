@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>KBMerger</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,38 +13,41 @@
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkOPhhbiRakfxnbZiBTO1MKuYN883ynPA&callback=initMap">
     </script>
-<body class="w3-brown">
+<body class="w3-brown" style="min-width: 499px">
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
+    
   <div class="w3-bar" id="myNavbar">
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+    <a href="#home" class="w3-bar-item w3-button w3-hide-small">HOME</a>
+    <a href="#home" class="w3-bar-item w3-display-small w3-hide-medium w3-hide-large w3-button">KAJAL &AMP; BRANDON'S WEDDING</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT US</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>
+    <a href="#registryList" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>
     <a href="#rsvp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pencil"></i> RSVP</a>
-	<a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT US</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-      <i class="fa fa-search"></i>
-    </a>
+	<a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT US</a>        
+</div>
+    
+    <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
+    <a href="#registryList" class="w3-bar-item w3-button" onclick="toggleFunction()">REGISTRY LIST</a>
+    <a href="#rsvp" class="w3-bar-item w3-button" onclick="toggleFunction()">RSVP</a>
+    <a href="#contact" class="w3-bar-item w3-button">CONTACT US</a>
+  </div>
+    
   </div>
 
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
-</div>
+  
 
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-sand w3-text-brown w3-xlarge w3-wide w3-animate-opacity">KAJAL <span class="w3-hide-small">and</span> BRANDON'S WEDDING</span>
+  <div class="w3-display-middle  w3-hide-small" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-sand w3-text-brown w3-xlarge w3-wide w3-animate-opacity">KAJAL <span>and</span> BRANDON'S WEDDING</span>
   </div>
+    
 </div>
 
 <!-- Container (About Section) -->
@@ -207,7 +210,7 @@
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64 " id="portfolio">
+<div class="w3-content w3-container w3-padding-64 " id="registryList">
   <h3 class="w3-center">Registry List:</h3>
   <p class="w3-center"><em>Here are the shops which we have set a Registry up with.<br> Click on the logo to reveal further details</em></p><br>
 
@@ -228,35 +231,11 @@
   </div>
 </div>
       <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
-  <img src="./images/h&amp;h.png" alt="House&Home" id="HomeandHouse" style="width:100%">
-  <div class="w3-container w3-center">
-    <p>House & Home</p>
-  </div>
-</div>
-      
-  </div>
-
-  <div class="w3-row w3-margin">
-     
-    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
-  <img src="./images/makro.png" alt="Makro" id="Makro" style="width:100%">
-  <div class="w3-container w3-center">
-    <p>Makro</p>
-  </div>
-</div>
-
-    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
         <img src="./images/CB.png" alt="Carol&Boydes" id="CandB" style="width:100%">
             <div class="w3-container w3-center">
                 <p>Carol & Boydes</p>
         </div>
     </div>
-      <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
-  <img src="./images/game.png" alt="GAME" id="GAME" style="width:100%">
-  <div class="w3-container w3-center">
-    <p>Game</p>
-  </div>
-</div>
       
   </div>
 </div>
