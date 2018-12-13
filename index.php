@@ -22,8 +22,7 @@
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <a href="#home" class="w3-bar-item w3-button w3-hide-small">HOME</a>
-    <a href="#home" class="w3-bar-item w3-display-small w3-hide-medium w3-hide-large w3-button">KAJAL &AMP; BRANDON'S WEDDING</a>
+    <a href="#home" class="w3-bar-item w3-button">HOME</a>    
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT US</a>
     <a href="#registryList" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>
     <a href="#rsvp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pencil"></i> RSVP</a>
@@ -47,7 +46,9 @@
   <div class="w3-display-middle  w3-hide-small" style="white-space:nowrap;">
     <span class="w3-center w3-padding-large w3-sand w3-text-brown w3-xlarge w3-wide w3-animate-opacity">KAJAL <span>and</span> BRANDON'S WEDDING</span>
   </div>
-    
+    <div class="w3-display-middle w3-opacity-min w3-hide-medium w3-hide-large w3-sand" style="max-width: 80%">
+        <h1 class="w3-center w3-padding-large w3-sand w3-text-brown w3-wide w3-small w3-animate-opacity">KAJAL &AMP; BRANDON'S WEDDING</h1>
+  </div>
 </div>
 
 <!-- Container (About Section) -->
