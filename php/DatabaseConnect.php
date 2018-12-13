@@ -1,10 +1,12 @@
 <?php
+//Useful for printing out array values to the UI so that you can see there layout... Used it on the select statements of fetchNamesOfAttendingUsers()
+//print_r($users);
 Class DatabaseHandler
 {
 private $servername = 'localhost';
 private $username = 'brandon';
 private $password = 'P@ssword';
-private $database = 'weddingdatabase';
+private $database = 'wedding_database';
 public $connection = null;
 
 	function Connect()
@@ -94,9 +96,6 @@ public $connection = null;
             catch (Exception $e){                    
                 return $e;
             }
-
-
-
             //$conn->close();
 	}
         function writeComment($userID,$comment){
@@ -117,5 +116,21 @@ public $connection = null;
             }
         }
         
+        function fetchNamesOfAttendingUsers(){
+            try{
+                $stmt = $this->connection->prepare("SELECT first_name, surname, family FROM users where attending = 1"); 
+                $stmt->execute();
+                $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                $p = 0;
+                $users = $stmt->fetchAll();
+                if(count($users) > 0)
+                    return $users;
+                else
+                    return false;
+            }
+            catch(PDOException $e) {
+                return "Error: " . $e->getMessage();
+            }
+        }
 }
 ?>
