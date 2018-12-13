@@ -1,5 +1,5 @@
-DROP DATABASE WeddingSite;
-CREATE DATABASE WeddingSite;
+DROP DATABASE faulingi_wedding_database;
+CREATE DATABASE faulingi_wedding_database;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS plusones;
 DROP TABLE IF EXISTS users;

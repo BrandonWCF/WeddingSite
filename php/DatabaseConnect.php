@@ -3,7 +3,7 @@
 //print_r($users);
 Class DatabaseHandler
 {
-private $servername = 'localhost:3306';
+private $servername = 'localhost';
 private $username = 'faulingi_brandon';
 private $password = 'bran-5496_436518';
 private $database = 'faulingi_wedding_database';
