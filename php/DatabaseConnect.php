@@ -4,7 +4,7 @@ Class DatabaseHandler
 private $servername = 'localhost';
 private $username = 'brandon';
 private $password = 'P@ssword';
-private $database = 'wedding_database';
+private $database = 'weddingdatabase';
 public $connection = null;
 
 	function Connect()
@@ -21,7 +21,32 @@ public $connection = null;
                     //echo "Connection failed: " . $e->getMessage();
             }
 	}
-	
+	function writePlusOneToDatabase($user,$rowId){
+            //echo "pFirstName: ".$user['pFirstName']." "."psurname: ".$user['psurname']." "."pCell: ".$user['pCell']." "."pMail: ".$user['pMail']." ";
+            $stmt = $this->connection->prepare("INSERT INTO plusones (plusones_first_name,user_id, plusones_surname, plusones_cell, plusones_mail, plusones_number_children)
+            VALUES (:pfirstname,:uid, :plastname, :pcell, :pmail, :children)");
+            $stmt->bindParam(':pfirstname', $fName);
+            $stmt->bindParam(':plastname', $lName);
+            $stmt->bindParam(':uid', $row);
+            $stmt->bindParam(':pcell', $cell);
+            $stmt->bindParam(':pmail', $email);
+            $stmt->bindParam(':children', $child);
+            //Array('FirstName'=>$_POST['firstName'],'surname'=>$_POST['surname'],'cell'=>$_POST['cell'],'mail'=>$_POST['mail'],'comment'=>$_POST['comment'],'kAcq'=>$_POST['kAcq'],'bAcq'=>$_POST['bAcq'])
+            // set parameters and execute
+            $fName = $user['pFirstName'];
+            $lName = $user['psurname'];
+            $cell = $user['pCell'];
+            $email = $user['pMail'];
+            $child = $user['child'];
+            $row = $rowId;
+            try{
+                $stmt->execute();
+                return true;
+            }
+            catch (Exception $e){               
+                return $e;
+            }
+        }
 	function WriteUserToDatabase($user)
 	{
             $date = date('Y-m-d');
@@ -43,6 +68,7 @@ public $connection = null;
             $stmt->bindParam(':imgName', $img);
             //Array('FirstName'=>$_POST['firstName'],'surname'=>$_POST['surname'],'cell'=>$_POST['cell'],'mail'=>$_POST['mail'],'comment'=>$_POST['comment'],'kAcq'=>$_POST['kAcq'],'bAcq'=>$_POST['bAcq'])
             // set parameters and execute
+            echo "First Name: ".$user['FirstName']."surname: ".$user['surname'];
             $firstname = $user['FirstName'];
             $lastname = $user['surname'];
             $cell = $user['cell'];
@@ -58,7 +84,11 @@ public $connection = null;
                 $stmt->execute();
                 $userID = $this->connection->lastInsertId();
                 $test = $this->writeComment($userID,$user['comment']);
-
+                echo "The following is the count ".count($user);
+                if(count($user) > 10)
+                {
+                    $test = $this->writePlusOneToDatabase($user,$userID);
+                }
                 return $test;
             }
             catch (Exception $e){                    

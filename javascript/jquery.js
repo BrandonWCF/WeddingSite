@@ -1,24 +1,28 @@
 $(document).ready(function (e) {
     console.log("Document Ready");
     $("#sendMail").click(function (e) {
-        e.preventDefault();
-        console.log("SENDING MAIL");
-        $.ajax({
-            url: "http://localhost:80/WeddingSite/php/email.php",
-            type: "POST",
-            data: new FormData(document.getElementById('formMail')),
-            contentType: false,
-            cache: false,
-            processData: false,
-            beforeSend: ajaxMailSent(),
-            success: function (data) {
-                ajaxMailReceived(data);
-            },
-            error: ajaxError(e)
-        }); //console.log(new FormData(document.getElementById('formMail')));
+        sendEmailClick(e);
     });
     $("#RSVP").click(function (e) {
-        console.log("SUBMITTING RSVP");
+        sendRSVPClick(e);
+    });
+    checkPartnerRSVP();
+    $("#pRSVP").click(function () {
+        checkPartnerRSVP();
+        checkRepeatMailandCell();
+    });
+    $("#rMail").click(function () {
+        checkRepeatMailandCell();
+    });
+    $("#rCell").click(function () {
+        checkRepeatMailandCell();
+    });
+    
+    refreshScreen(e);
+});
+
+function sendRSVPClick(e){
+    console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
             url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
@@ -34,30 +38,25 @@ $(document).ready(function (e) {
             error: ajaxError(e)
         });
         //console.log(new FormData(this));
-    });
-    
-    function refreshScreen(){
-        console.log('REFRESHING SCREEN');
-        var refData = new FormData();
-        refData.append("Refresh","Home");
+}
+
+function sendEmailClick(e){ 
+        e.preventDefault();
+        console.log("SENDING MAIL");
         $.ajax({
-        url: "http://localhost:80/WeddingSite/php/refreshView.php",
-        type: "POST",
-        data: refData,
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: function (data) {
-            ajaxRefreshScreenReceive(data)
-        },
-        error: ajaxError(e)
-    });
-    };
-    
-    refreshScreen();
-});
-
-
+            url: "http://localhost:80/WeddingSite/php/email.php",
+            type: "POST",
+            data: new FormData(document.getElementById('formMail')),
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: ajaxMailSent(),
+            success: function (data) {
+                ajaxMailReceived(data);
+            },
+            error: ajaxError(e)
+        }); //console.log(new FormData(document.getElementById('formMail')));
+}
 
 function ajaxSent() {
     console.log("Sent");
@@ -109,6 +108,24 @@ function ajaxMailReceived(data) {
     }
 }
 
+function refreshScreen(e){
+        console.log('REFRESHING SCREEN');
+        var refData = new FormData();
+        refData.append("Refresh","Home");
+        $.ajax({
+        url: "http://localhost:80/WeddingSite/php/refreshView.php",
+        type: "POST",
+        data: refData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (data) {
+            ajaxRefreshScreenReceive(data)
+        },
+        error: ajaxError(e)
+    });
+}
+
 function ajaxRefreshScreenReceive(data) {
     if (data != null) {
 
@@ -125,5 +142,95 @@ function ajaxRefreshScreenReceive(data) {
         }
     } else {
         console.log("ajaxRefreshScreenReceive: Data is null")
+    }
+}
+
+function checkPartnerRSVP(){
+    var checkbox = document.getElementById('pRSVP');
+    console.log("The following is checking up the value for the pRSVP checkbox");
+    console.log(checkbox);
+    if(checkbox.checked == true){
+        console.log("Checkbox is checked");
+        document.getElementById('partnerDetails').style.display = 'block';
+    }
+    else{
+        console.log("Checkbox is not checked");
+        document.getElementById('partnerDetails').style.display = 'none';
+    }
+}
+
+function checkRepeatMailandCell(){
+    var mailCheckbox = document.getElementById('rMail');
+    var cellCheckbox = document.getElementById('rCell');
+    console.log("checkRepeatMailandCell");
+    console.log(mailCheckbox.checked);
+    console.log(cellCheckbox.checked);
+    if(mailCheckbox.checked == true || cellCheckbox.checked == true ){
+        if(mailCheckbox.checked == true){
+            document.getElementById('pMail').value = document.getElementById('mail').value;
+        }
+        if(cellCheckbox.checked == true){
+            document.getElementById('pCell').value = document.getElementById('cell').value;
+        }
+    }
+}
+
+// Modal Image Gallery
+function onClick(element) {
+    console.log(element);
+  document.getElementById("img01").src = element.src;
+  console.log(element.id)
+  switch(element.id){
+    case'CandB':    
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'Makro':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'GAME':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'HomeandHouse':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'MrDWired':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    case'MrP':
+        document.getElementById("refID").innerHTML = '123456879';
+    break;
+    default:
+        console.log(element.id);
+                     
+      
+  }
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Modal RSVP
+function RSVPClick() {
+  document.getElementById("modal02").style.display = "block";
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-sand";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-sand", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
     }
 }

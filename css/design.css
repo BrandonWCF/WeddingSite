@@ -15,19 +15,19 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url('../images/IMG_8597.jpg');
+    background-image: url('../images/IMG_8597.JPG');
     min-height: 100%;
 }
 
 /* Second image (Portfolio) */
 .bgimg-2 {
-    background-image: url("../images/IMG_9133.jpg");
+    background-image: url("../images/IMG_9133.JPG");
     min-height: 400px;
 }
 
 /* Third image (Contact) */
 .bgimg-3 {
-    background-image: url("../images/IMG_8731.jpg");
+    background-image: url("../images/IMG_8731.JPG");
     min-height: 400px;
 }
 
