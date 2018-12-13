@@ -25,8 +25,8 @@ function sendRSVPClick(e){
     console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
-            //url: "http://faulinginlove.co.za/php/RSVPuser.php",
-            url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
+            url: "http://faulinginlove.co.za/php/RSVPuser.php",
+            //url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
             type: "POST",
             data: new FormData(document.getElementById('formRSVP')),
             contentType: false,
@@ -45,8 +45,8 @@ function sendEmailClick(e){
         e.preventDefault();
         console.log("SENDING MAIL");
         $.ajax({
-            //url: "http://faulinginlove.co.za/php/email.php",
-            url: "http://localhost:80/WeddingSite/php/email.php",
+            url: "http://faulinginlove.co.za/php/email.php",
+            //url: "http://localhost:80/WeddingSite/php/email.php",
             type: "POST",
             data: new FormData(document.getElementById('formMail')),
             contentType: false,
@@ -115,8 +115,8 @@ function refreshScreen(e){
         var refData = new FormData();
         refData.append("Refresh","Home");
         $.ajax({
-        //url: "http://faulinginlove.co.za/php/refreshView.php",
-        url: "http://localhost:80/WeddingSite/php/refreshView.php",
+        url: "http://faulinginlove.co.za/php/refreshView.php",
+        //url: "http://localhost:80/WeddingSite/php/refreshView.php",
         type: "POST",
         data: refData,
         contentType: false,
