@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/faulingi/public_html/
-    - /home/faulingi/repositories/WeddingSite index.html $DEPLOYPATH
+    - /home/faulingi/repositories/WeddingSite index.php $DEPLOYPATH
