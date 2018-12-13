@@ -81,20 +81,20 @@
   </div>
   <p class="w3-wide"><i class="fa fa-photo"></i>Company</p>
   <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-sand w3-center" style="width:5%">5%</div>
+    <div id="percentageAttendance" class="w3-container w3-padding-small w3-sand w3-center" style="width:5%">5%</div>
   </div>
 </div>
 
 <div class="w3-row w3-center w3-brown w3-padding-16">
   <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">7</span><br>
+    <span id="familyAttending" class="w3-xlarge">7</span><br>
     Family
   </div>
   <div class="w3-half w3-section">
     <span class="w3-center w3-padding-large w3-sand w3-xlarge w3-wide w3-animate-opacity">GUESTS <span class="w3-hide-small">ATTENDING</span></span>
   </div>
   <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">0</span><br>
+    <span id="friendsAttending" class="w3-xlarge">0</span><br>
     Friends
   </div>
 </div>

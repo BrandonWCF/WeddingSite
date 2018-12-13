@@ -138,7 +138,23 @@ function ajaxRefreshScreenReceive(data) {
             // view uploaded file.
             // $("#preview").html(data).fadeIn();
             // $("#RSVP")[0].reset(); 
-            console.log("ajaxRefreshScreenReceive: Success: " + data);
+            var data = JSON.parse(data);
+            console.log(data);
+            var famAttendance = 0;
+            var frAttendance = 0;
+            var attendance = data.length;
+            document.getElementById('percentageAttendance').innerHTML = attendance + "%";
+            data.forEach((user, index) => {  
+                console.log(user);
+                if(user['family'] == '1'){
+                    famAttendance++;
+                }else{
+                    frAttendance++;
+                }
+            });
+            document.getElementById('familyAttending').innerHTML = famAttendance;
+            document.getElementById('friendsAttending').innerHTML = frAttendance;
+            
         }
     } else {
         console.log("ajaxRefreshScreenReceive: Data is null")
