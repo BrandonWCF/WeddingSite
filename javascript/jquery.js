@@ -170,6 +170,7 @@ function ajaxRefreshScreenReceive(data) {
                         frAttendance = frAttendance + parseInt(user['number_children']);
                     }
                 });
+                document.getElementById('percentageAttendance').innerHTML = frAttendance + famAttendance + "%";
                 document.getElementById('familyAttending').innerHTML = famAttendance;
                 document.getElementById('friendsAttending').innerHTML = frAttendance;
             }else{
