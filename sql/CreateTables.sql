@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
 	bran_acq boolean default false not null,        
 	kaj_acq boolean default false not null,
         family boolean default false not null,
+        number_children int default 0,
 	Primary Key (user_id)
 );
 
@@ -35,7 +36,6 @@ CREATE TABLE IF NOT EXISTS plusones(
 	plusones_surname varchar(50) not null,
 	plusones_cell varchar(13),
         plusones_mail varchar(150),
-        plusones_number_children int default 0,
 	Primary Key (plusones_id),
         Foreign Key (user_id) REFERENCES users(user_id)
 );

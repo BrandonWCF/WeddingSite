@@ -32,21 +32,19 @@ public $connection = null;
 	}
 	function writePlusOneToDatabase($user,$rowId){
             //echo "pFirstName: ".$user['pFirstName']." "."psurname: ".$user['psurname']." "."pCell: ".$user['pCell']." "."pMail: ".$user['pMail']." ";
-            $stmt = $this->connection->prepare("INSERT INTO plusones (plusones_first_name,user_id, plusones_surname, plusones_cell, plusones_mail, plusones_number_children)
-            VALUES (:pfirstname,:uid, :plastname, :pcell, :pmail, :children)");
+            $stmt = $this->connection->prepare("INSERT INTO plusones (plusones_first_name,user_id, plusones_surname, plusones_cell, plusones_mail)
+            VALUES (:pfirstname,:uid, :plastname, :pcell, :pmail)");
             $stmt->bindParam(':pfirstname', $fName);
             $stmt->bindParam(':plastname', $lName);
             $stmt->bindParam(':uid', $row);
             $stmt->bindParam(':pcell', $cell);
             $stmt->bindParam(':pmail', $email);
-            $stmt->bindParam(':children', $child);
             //Array('FirstName'=>$_POST['firstName'],'surname'=>$_POST['surname'],'cell'=>$_POST['cell'],'mail'=>$_POST['mail'],'comment'=>$_POST['comment'],'kAcq'=>$_POST['kAcq'],'bAcq'=>$_POST['bAcq'])
             // set parameters and execute
             $fName = $user['pFirstName'];
             $lName = $user['psurname'];
             $cell = $user['pCell'];
             $email = $user['pMail'];
-            $child = $user['child'];
             $row = $rowId;
             try{
                 $stmt->execute();
@@ -63,8 +61,8 @@ public $connection = null;
             //$stmt = $this->connection->prepare("INSERT INTO users (first_name, surname, cell, attending, mail, join_date, bran_acq, kaj_acq)
             //VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             //$stmt->bind_param("ssibsdbb", $firstname, $lastname, $cell, $attending, $email, $joinDate,$bKnows,$kKnows);
-            $stmt = $this->connection->prepare("INSERT INTO users (first_name, surname, cell, attending, mail, join_date, bran_acq, kaj_acq, family, image_name)
-            VALUES (:firstname, :lastname, :cell, :attend, :mail, :jDate, :bKn, :kKn, :family, :imgName)");
+            $stmt = $this->connection->prepare("INSERT INTO users (first_name, surname, cell, attending, mail, join_date, bran_acq, kaj_acq, family, image_name, number_children)
+            VALUES (:firstname, :lastname, :cell, :attend, :mail, :jDate, :bKn, :kKn, :family, :imgName, :attendingChildren)");
             $stmt->bindParam(':firstname', $firstname);
             $stmt->bindParam(':lastname', $lastname);
             $stmt->bindParam(':cell', $cell);
@@ -75,6 +73,7 @@ public $connection = null;
             $stmt->bindParam(':kKn', $kKnows);
             $stmt->bindParam(':family', $family);
             $stmt->bindParam(':imgName', $img);
+            $stmt->bindParam(':attendingChildren', $children);
             //Array('FirstName'=>$_POST['firstName'],'surname'=>$_POST['surname'],'cell'=>$_POST['cell'],'mail'=>$_POST['mail'],'comment'=>$_POST['comment'],'kAcq'=>$_POST['kAcq'],'bAcq'=>$_POST['bAcq'])
             // set parameters and execute
             echo "First Name: ".$user['FirstName']."surname: ".$user['surname'];
@@ -88,13 +87,14 @@ public $connection = null;
             $kKnows = $user['kAcq'];
             $family = $user['family'];
             $img = $user['imageName'];
+            $children = $user['child'];
 
             try{
                 $stmt->execute();
                 $userID = $this->connection->lastInsertId();
                 $test = $this->writeComment($userID,$user['comment']);
                 echo "The following is the count ".count($user);
-                if(count($user) > 10)
+                if(count($user) > 11)
                 {
                     $test = $this->writePlusOneToDatabase($user,$userID);
                 }
@@ -125,11 +125,12 @@ public $connection = null;
         
         function fetchNamesOfAttendingUsers(){
             try{
-                $stmt = $this->connection->prepare("SELECT family FROM users where attending = 1"); 
+                $stmt = $this->connection->prepare("SELECT family,number_children,plusones_id FROM users LEFT JOIN plusones ON users.user_id = plusones.user_id where attending = 1"); 
                 $stmt->execute();
                 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 $p = 0;
                 $users = $stmt->fetchAll();
+                
                 if(count($users) > 0)
                     return $users;
                 else

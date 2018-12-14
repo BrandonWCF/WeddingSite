@@ -104,7 +104,7 @@
 </div>
 
 <!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+<div id="modal01" class="w3-modal w3-black w3-opacity-min" onclick="this.style.display='none'">
   <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
   <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
     <img id="img01" class="w3-image">
@@ -165,6 +165,14 @@
 			<input class="w3-input" placeholder="0834555568" type="tel" id="cell" name="cell">
 			<label>Email Address</label>
 			<input class="w3-input" placeholder="kajal.s.tusi@gmail.com" type="email" id="mail" name="mail">
+                        <label>Number of Children attending</label>
+			<select class="w3-select" id="cAttending" name="cAttending">			
+				<option value="0" selected>0</option>
+                                <option value="1">1</option>
+				<option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">3+</option>
+			</select>
 			<label>Comments</label>
 			<input class="w3-input w3-margin-bottom" placeholder="Snacks are always good" type="text" id="comment" name="comment">			
                         <input class="w3-radio w3-margin-bottom" type="checkbox" name="pRSVP[]" id="pRSVP" value="pRSVP">
@@ -182,14 +190,6 @@
                         <input class="w3-radio w3-margin-bottom" type="checkbox" name="rMail" id="rMail" value="rMail">
                         <label>same as above</label>
 			<input class="w3-input" placeholder="bwcfaul@gmail.com" type="email" id="pMail" name="pMail">
-                        <label>Number of Children attending</label>
-			<select class="w3-select" id="cAttending" name="cAttending">			
-				<option value="0" selected>0</option>
-                                <option value="1">1</option>
-				<option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">3+</option>
-			</select>
                         </div>
                         <br>                     
                         <label>Add a photo of yourself so we can get familiar with who will be attending (optional)</label>
@@ -286,6 +286,21 @@
 </div>
     </form>
 </div>
+</div>
+
+<!-- Modal for ajax response-->
+<div id="modal03" class="w3-modal" onclick="this.style.display='none'">
+  
+  <div class="w3-modal-content w3-text-black w3-sand w3-center w3-animate-zoom">
+      <header class="w3-container w3-brown"> 
+        <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
+        <h2>Server Response</h2>
+      </header>
+      <div class="w3-container w3-padding-16">
+          <p id="ajaxResponse" class="w3-large"></p>
+      </div>
+    
+  </div>
 </div>
 
 <!-- Footer -->

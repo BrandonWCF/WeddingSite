@@ -35,6 +35,7 @@ function sendRSVPClick(e){
             beforeSend: ajaxSent(),
             success: function (data) {
                 ajaxReceived(data);
+                refreshScreen(e);
             },
             error: ajaxError(e)
         });
@@ -70,16 +71,18 @@ function ajaxReceived(data) {
         if (data == 'invalid')
         {
             // invalid file format.
-            console.log("Home View did not refresh");
+            displayMessage("Data returned as invalid: " + data);
         } else
         {
             // view uploaded file.
             // $("#preview").html(data).fadeIn();
             // $("#RSVP")[0].reset(); 
             console.log("Success" + data);
+            displayMessage("Message was successfully sent" + data);
         }
     } else {
-        console.log("Data is null")
+        console.log("Data is null");
+        displayMessage("Unsuccessful data is null");
     }
 }
 
@@ -98,15 +101,18 @@ function ajaxMailReceived(data) {
         {
             // invalid file format.
             console.log("ajaxMailReceived: Failed to send message")
+            displayMessage("Message was not successfully sent");
         } else
         {
             // view uploaded file.
             // $("#preview").html(data).fadeIn();
             // $("#RSVP")[0].reset(); 
             console.log("ajaxMailReceived: Success: " + data);
+            displayMessage("Message was successfully sent" + data);
         }
     } else {
         console.log("ajaxMailReceived: Data is null")
+        displayMessage("Message was not successfully sent - no data received back from the server");
     }
 }
 
@@ -123,7 +129,7 @@ function refreshScreen(e){
         cache: false,
         processData: false,
         success: function (data) {
-            ajaxRefreshScreenReceive(data)
+            ajaxRefreshScreenReceive(data);
         },
         error: ajaxError(e)
     });
@@ -150,10 +156,18 @@ function ajaxRefreshScreenReceive(data) {
                 document.getElementById('percentageAttendance').innerHTML = attendance + "%";
                 data.forEach((user, index) => {  
                     console.log(user);
-                    if(user['family'] == '1'){
+                    if(user['family'] === '1'){
                         famAttendance++;
+                        if(user['plusones_id'] !== null){
+                            famAttendance++;
+                        }
+                        famAttendance = famAttendance + parseInt(user['number_children']);
                     }else{
                         frAttendance++;
+                        if(user['plusones_id'] !== null){
+                            frAttendance++;
+                        }
+                        frAttendance = frAttendance + parseInt(user['number_children']);
                     }
                 });
                 document.getElementById('familyAttending').innerHTML = famAttendance;
@@ -255,4 +269,9 @@ function toggleFunction() {
     } else {
         x.className = x.className.replace(" w3-show", "");
     }
+}
+
+function displayMessage(message){
+    document.getElementById('modal03').style.display = "block";
+    document.getElementById('ajaxResponse').innerHTML = message;
 }
