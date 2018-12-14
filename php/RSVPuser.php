@@ -70,7 +70,9 @@ if($db->connection != null)
                             'bAcq'=>$bAcq,
                             'family'=>$family,
                             'imageName'=>$image);
-                        
+                        if(isset($_POST['cAttending'])){
+                            $user['child'] = $_POST['cAttending'];
+                        }
                         if(!empty($_POST['pRSVP'])){
                             $size = count($_POST['pRSVP']);
                             $cacq = $_POST['pRSVP'];
@@ -83,9 +85,7 @@ if($db->connection != null)
                                         $user['pCell'] = $_POST['pCell'];
                                         $user['pMail'] = $_POST['pMail'];
                                         echo "pFirstName: ".$user['pFirstName']." "."psurname: ".$user['psurname']." "."pCell: ".$user['pCell']." "."pMail: ".$user['pMail']." ";
-                                        if(isset($_POST['cAttending'])){
-                                            $user['child'] = $_POST['cAttending'];
-                                        }
+                                        
                                     }
                                     else{
                                         echo 'RSVPing for partner but no details provided on form';
