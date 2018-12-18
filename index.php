@@ -59,7 +59,7 @@
   and downs of our personalities. With this being the case we have decided to take things to the next step and I the luckiest man alive got the opportunity to ask the most beautiful and wonderful woman to be my wife. She said <b>YES</b>!!!!</p>
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
-      <p><b><i class="fa fa-user w3-margin-right"></i>Kajal And Brandon</b></p><br>
+      <p><b><i id="mockLogin" class="fa fa-heart w3-margin-right"></i>Kajal And Brandon</b></p><br>
       <img src="./images/IMG_8715.JPG" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Us" width="500" height="333">
     </div>
 
@@ -140,7 +140,7 @@
         <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
         <h2>RSVP</h2>
       </header>
-                        <form id="formRSVP" name="formRSVP">
+                        <form id="formRSVP" name="formRSVP" onsubmit="return false">
                             <label>Please use the drop down to register your attendance</label>
                             <select class="w3-select" id="attending" name="attending">			
 				<option value="1" selected>Attending</option>
@@ -158,11 +158,11 @@
 			<label>acquainted with Brandon</label>
                         <br>
 			<label>First Name</label>
-			<input class="w3-input" placeholder="Kajal" type="text" id="firstName" name="firstName">
+			<input class="w3-input" required placeholder="Kajal" type="text" id="firstName" name="firstName">
 			<label>Surname</label>
-			<input class="w3-input" placeholder="Tulsi" type="text" id="surname" name="surname">
+			<input class="w3-input" required placeholder="Tulsi" type="text" id="surname" name="surname">
 			<label>Contact Details</label>
-			<input class="w3-input" placeholder="0834555568" type="tel" id="cell" name="cell">
+			<input class="w3-input" required placeholder="0834555568" type="tel" id="cell" name="cell">
 			<label>Email Address</label>
 			<input class="w3-input" placeholder="kajal.s.tusi@gmail.com" type="email" id="mail" name="mail">
                         <label>Number of Children attending</label>
@@ -177,7 +177,7 @@
 			<input class="w3-input w3-margin-bottom" placeholder="Snacks are always good" type="text" id="comment" name="comment">			
                         <input class="w3-radio w3-margin-bottom" type="checkbox" name="pRSVP[]" id="pRSVP" value="pRSVP">
                         <label>RSVP for Partner</label>
-                        <div id="partnerDetails" name="partnerDetails" style="display: none">
+                        <div id="partnerDetails" required name="partnerDetails" style="display: none">
                         <label>Partner First Name</label>
 			<input class="w3-input" required placeholder="Brandon" type="text" id="pfirstName" name="pfirstName">
 			<label>Partner Surname</label>
@@ -194,7 +194,7 @@
                         <br>                     
                         <label>Add a photo of yourself so we can get familiar with who will be attending (optional)</label>
                         <input type="file" id="photo" name="photo" accept=".jpg,.png,.jpeg" class="w3-input">
-                        <button id="RSVP" name="RSVP" type="button" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">RSVP</button>
+                        <button id="RSVP" name="RSVP" type="submit" form="formRSVP" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">RSVP</button>
 			
 		<footer class="w3-container w3-brown">
                 <p>Look forward to your attendance</p>
@@ -303,6 +303,25 @@
   </div>
 </div>
 
+<div id="modal04" class="w3-modal">
+  
+  <div class="w3-modal-content w3-text-black w3-sand w3-center w3-animate-zoom">
+      <header class="w3-container w3-brown"> 
+        <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
+        <h2>Login</h2>
+      </header>
+      <form id="formLog" name="formLog" onsubmit="return false">
+      <div class="w3-container w3-padding-16">
+            <label>Username</label>
+            <input class="w3-input" required type="text" id="loginU" name="loginU">
+            <label>Password</label>
+            <input class="w3-input" required type="text" id="loginP" name="loginP">
+            <button id="formLo" name="formLo" type="submit" form="formL" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">Login</button>
+            <div id="loginResponse" style="width:100%;overflow: scroll"></div>
+      </div>
+      </form> 
+  </div>
+</div>
 <!-- Footer -->
 <footer class="w3-center w3-sand w3-padding-64">
   <a href="#home" class="w3-button w3-brown w3-opacity w3-hover-opacity-off"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
@@ -316,6 +335,5 @@
   </div>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
-
 </body>
 </html>

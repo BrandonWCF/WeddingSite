@@ -24,13 +24,18 @@ if($db->connection != null)
                             if($pic == 'invalid file extension'){
                                 echo 'invalid file extension';                                
                             }
+                            else if($pic == 'No file attached'){
+                                echo 'No file attached';                                
+                            }                    
                             else if($pic == FALSE){
                                 echo 'Failed to upload file';                                
                             }                            
                             else{
+                                echo 'File uploaded successfully';
                                 $image = $pic;
                             }
                         }
+                        
                         
                         if(isset($_POST['attending'])){
                             if($_POST['attending'] == '1'){
@@ -76,28 +81,42 @@ if($db->connection != null)
                         if(!empty($_POST['pRSVP'])){
                             $size = count($_POST['pRSVP']);
                             $cacq = $_POST['pRSVP'];
+                            if($size == 0)
+                                echo 'no partner rsvp';
                             for($i=0;$i < $size;$i++){
                                 if($cacq[$i] == 'pRSVP'){
                                     //User is signing up for additional partner too
                                     if(!empty($_POST['pfirstName']) && !empty($_POST['psurname']) && !empty($_POST['pCell']) && !empty($_POST['pMail'])){
-                                        $user['pFirstName'] = $_POST['pfirstName'];
-                                        $user['psurname'] = $_POST['psurname'];
-                                        $user['pCell'] = $_POST['pCell'];
-                                        $user['pMail'] = $_POST['pMail'];
-                                        echo "pFirstName: ".$user['pFirstName']." "."psurname: ".$user['psurname']." "."pCell: ".$user['pCell']." "."pMail: ".$user['pMail']." ";
+                                        if($_POST['pfirstName'] != "" && $_POST['psurname'] != "" && $_POST['pCell'] != "" && $_POST['pMail'] != ""){
+                                            $user['pFirstName'] = $_POST['pfirstName'];
+                                            $user['psurname'] = $_POST['psurname'];
+                                            $user['pCell'] = $_POST['pCell'];
+                                            $user['pMail'] = $_POST['pMail'];
+                                        }
+                                        else{
+                                            echo 'no partner rsvp';
+                                        }
+                                        
+                                        //echo "pFirstName: ".$user['pFirstName']." "."psurname: ".$user['psurname']." "."pCell: ".$user['pCell']." "."pMail: ".$user['pMail']." ";
                                         
                                     }
                                     else{
-                                        echo 'RSVPing for partner but no details provided on form';
-                                        return 0;
+                                        //echo 'RSVPing for partner but no details provided on form';
+                                        //This is the case where the post does not contain partner rsvp details which it should always they may just be blank
                                     }
                                     
                                 }
+                                else{
+                                    echo 'no partner rsvp';
+                                }
                             }
+                        }
+                        else{
+                            echo 'no partner rsvp';
                         }
                         
                         
-                        $result = $db->WriteUserToDatabase($user);
+                        $result = json_encode($db->WriteUserToDatabase($user));
                         
 		}
 		else
@@ -105,8 +124,8 @@ if($db->connection != null)
 			$result .= 'Unexpected Post';
 		}
 	}
-        echo $result;
-	$db = null;
+        $db = null;
+        echo $result;	
 }
 else
 {
@@ -118,13 +137,17 @@ function SavePicture(){
     $path = '../uploads/';
     $img = $_FILES['photo']['name'];
     $tmp = $_FILES['photo']['tmp_name'];
-
+    $uploadOk = 1;
     // get uploaded file's extension
     $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
 
     // can upload same image using rand function
     $final_image = rand(1000,1000000).$img;
-
+    // Check file size
+    if ($_FILES["photo"]["size"] == 0) {
+        return "No file attached";
+        $uploadOk = 0;
+    }
     // check's valid format
     if(in_array($ext, $valid_extensions)) 
     { 

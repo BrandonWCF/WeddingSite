@@ -3,19 +3,19 @@
 //print_r($users);
 Class DatabaseHandler
 {
-
+/*
 private $servername = 'localhost';
 private $username = 'faulingi_brandon';
 private $password = 'bran-5496_436518';
 private $database = 'faulingi_wedding_database';
 public $connection = null;
-/*
+*/
 private $servername = 'localhost';
 private $username = 'brandon';
 private $password = 'P@ssword';
 private $database = 'wedding_database';
 public $connection = null;
-*/
+
 	function Connect()
 	{
             try 
@@ -76,7 +76,7 @@ public $connection = null;
             $stmt->bindParam(':attendingChildren', $children);
             //Array('FirstName'=>$_POST['firstName'],'surname'=>$_POST['surname'],'cell'=>$_POST['cell'],'mail'=>$_POST['mail'],'comment'=>$_POST['comment'],'kAcq'=>$_POST['kAcq'],'bAcq'=>$_POST['bAcq'])
             // set parameters and execute
-            echo "First Name: ".$user['FirstName']."surname: ".$user['surname'];
+            //echo "First Name: ".$user['FirstName']."surname: ".$user['surname'];
             $firstname = $user['FirstName'];
             $lastname = $user['surname'];
             $cell = $user['cell'];
@@ -93,7 +93,7 @@ public $connection = null;
                 $stmt->execute();
                 $userID = $this->connection->lastInsertId();
                 $test = $this->writeComment($userID,$user['comment']);
-                echo "The following is the count ".count($user);
+                //echo "The following is the count ".count($user);
                 if(count($user) > 11)
                 {
                     $test = $this->writePlusOneToDatabase($user,$userID);
@@ -131,6 +131,24 @@ public $connection = null;
                 $p = 0;
                 $users = $stmt->fetchAll();
                 
+                if(count($users) > 0)
+                    return $users;
+                else
+                    return false;
+            }
+            catch(PDOException $e) {
+                return "Error: " . $e->getMessage();
+            }
+        }
+        
+        function fetchDatabaseTableValues(){
+            try{
+                $stmt = $this->connection->prepare("SELECT * FROM users LEFT JOIN plusones ON users.user_id = plusones.user_id LEFT JOIN comments ON users.user_id = comments.user_id where attending = 1"); 
+                $stmt->execute();
+                $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                $p = 0;
+                $users = $stmt->fetchAll();
+                //print_r($users);
                 if(count($users) > 0)
                     return $users;
                 else
