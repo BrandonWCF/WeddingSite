@@ -131,7 +131,7 @@
 
 <!-- Modal for RSVP click-->
 
-<div id="modal02" class="w3-modal">
+<div id="modal02" class="w3-modal" ondblclick="this.style.display='none'">
     
   
   <div class="w3-modal-content w3-animate-zoom w3-center w3-sand" id="modal02Content">
@@ -289,7 +289,7 @@
 </div>
 
 <!-- Modal for ajax response-->
-<div id="modal03" class="w3-modal" onclick="this.style.display='none'">
+<div id="modal03" class="w3-modal" ondblclick="this.style.display='none'">
   
   <div class="w3-modal-content w3-text-black w3-sand w3-center w3-animate-zoom">
       <header class="w3-container w3-brown"> 
@@ -303,7 +303,7 @@
   </div>
 </div>
 
-<div id="modal04" class="w3-modal">
+<div id="modal04" class="w3-modal" ondblclick="this.style.display='none'">
   
   <div class="w3-modal-content w3-text-black w3-sand w3-center w3-animate-zoom">
       <header class="w3-container w3-brown"> 
