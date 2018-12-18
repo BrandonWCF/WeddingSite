@@ -7,7 +7,7 @@
  */
 
 $username = "brandon";
-$password = "bran-5496";
+$password = "bran-%4(6_$3^5!8";
 require_once('./DatabaseConnect.php');
 $db = New DatabaseHandler;
 $db->Connect();

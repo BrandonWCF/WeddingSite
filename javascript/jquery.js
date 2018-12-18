@@ -37,8 +37,8 @@ function loginClick(e){
         var toAdd = new FormData(document.getElementById('formLog'));
         toAdd.append("Login","Login");
         $.ajax({
-            //url: "http://www.faulinginlove.co.za/php/quickLogin.php",
-            url: "http://localhost:80/WeddingSite/php/quickLogin.php",
+            url: "http://www.faulinginlove.co.za/php/quickLogin.php",
+            //url: "http://localhost:80/WeddingSite/php/quickLogin.php",
             type: "POST",
             data: toAdd,
             contentType: false,
@@ -52,28 +52,7 @@ function loginClick(e){
         });
         //console.log(new FormData(this));
 }
-/*
-attending: "1"
-bran_acq: "0"
-cell: "87965125665"
-comment_date: "2018-12-16"
-comment_id: "3"
-comment_made: "Let's do this now test 2"
-family: "0"
-first_name: "Bob"
-image_name: "none"
-join_date: "2018-12-16"
-kaj_acq: "1"
-mail: "bob@bob.com"
-number_children: "2"
-password: null
-plusones_cell: "2312412412515"
-plusones_first_name: "Test"
-plusones_id: "1"
-plusones_mail: "bob@bob.com"
-plusones_surname: "test"
-surname: "Builder"
-user_id*/
+
 function loginGD(data){
     if(data == ""){
         console.log("Nothing was returned");
@@ -101,8 +80,8 @@ function sendRSVPClick(e){
     console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
-            //url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
-            url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
+            url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
+            //url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
             type: "POST",
             data: new FormData(document.getElementById('formRSVP')),
             contentType: false,
@@ -122,8 +101,8 @@ function sendEmailClick(e){
         e.preventDefault();
         console.log("SENDING MAIL");
         $.ajax({
-            //url: "http://www.faulinginlove.co.za/php/email.php",
-            url: "http://localhost:80/WeddingSite/php/email.php",
+            url: "http://www.faulinginlove.co.za/php/email.php",
+            //url: "http://localhost:80/WeddingSite/php/email.php",
             type: "POST",
             data: new FormData(document.getElementById('formMail')),
             contentType: false,
@@ -228,8 +207,8 @@ function refreshScreen(e){
         var refData = new FormData();
         refData.append("Refresh","Home");
         $.ajax({
-        //url: "http://www.faulinginlove.co.za/php/refreshView.php",
-        url: "http://localhost:80/WeddingSite/php/refreshView.php",
+        url: "http://www.faulinginlove.co.za/php/refreshView.php",
+        //url: "http://localhost:80/WeddingSite/php/refreshView.php",
         type: "POST",
         data: refData,
         contentType: false,
