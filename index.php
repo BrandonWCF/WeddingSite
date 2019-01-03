@@ -13,7 +13,7 @@
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkOPhhbiRakfxnbZiBTO1MKuYN883ynPA&callback=initMap">
     </script>
-<body class="w3-brown" style="min-width: 499px">
+<body style="min-width: 499px">
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -24,16 +24,17 @@
     </a>
     <a href="#home" class="w3-bar-item w3-button">HOME</a>    
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT US</a>
-    <a href="#registryList" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>
     <a href="#rsvp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pencil"></i> RSVP</a>
-	<a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT US</a>        
+    <a href="#registryList" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT US</a>        
+    <a href="#accomodation" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i> ACCOMMODATION</a> 
 </div>
     
     <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
     <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
-    <a href="#registryList" class="w3-bar-item w3-button" onclick="toggleFunction()">REGISTRY LIST</a>
     <a href="#rsvp" class="w3-bar-item w3-button" onclick="toggleFunction()">RSVP</a>
+    <a href="#registryList" class="w3-bar-item w3-button" onclick="toggleFunction()">REGISTRY LIST</a>
     <a href="#contact" class="w3-bar-item w3-button">CONTACT US</a>
   </div>
     
@@ -42,17 +43,17 @@
   
 
 <!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+<div class="bgimg-1 w3-display-container" id="home">
   <div class="w3-display-middle  w3-hide-small" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-sand w3-text-brown w3-xlarge w3-wide w3-animate-opacity">KAJAL <span>and</span> BRANDON'S WEDDING</span>
+    <span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity" style="background-color:#c83737;color:#f4e3d7">KAJAL <span>and</span> BRANDON'S WEDDING</span>
   </div>
-    <div class="w3-display-middle w3-opacity-min w3-hide-medium w3-hide-large w3-sand" style="max-width: 80%">
-        <h1 class="w3-center w3-padding-large w3-sand w3-text-brown w3-wide w3-small w3-animate-opacity">KAJAL &AMP; BRANDON'S WEDDING</h1>
+    <div class="w3-display-middle w3-opacity-min w3-hide-medium w3-hide-large" style="max-width: 80%;background-color:#c83737">
+        <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity">KAJAL &AMP; BRANDON'S WEDDING</h1>
   </div>
 </div>
 
 <!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64 w3-brown" id="about">
+<div class="w3-content w3-container w3-padding-64" style="background-color: #f4e3d7cc" id="about">
   <h3 class="w3-center">ABOUT US</h3>
   <p class="w3-center"><em>We Love Life</em></p>
   <p>We are excited to be entering this new period in our lives together, having started this journey together since 2010 a lot has happened. Up to this point we have managed to spend a third of our life-spans together and have learnt the ups
@@ -60,7 +61,7 @@
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
       <p><b><i id="mockLogin" class="fa fa-heart w3-margin-right"></i>Kajal And Brandon</b></p><br>
-      <img src="./images/IMG_8715.JPG" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Us" width="500" height="333">
+      <img src="./images/photo3.JPG" class="w3-round w3-image" alt="Photo of Us" width="500" height="333">
     </div>
 
     <!-- Hide this text on small devices -->
@@ -72,32 +73,32 @@
   </div>
   <p class="w3-large w3-center w3-padding-16">What to look forward to:</p>
   <p class="w3-wide"><i class="fa fa-camera"></i>Venue</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-sand w3-center" style="width:100%">100%</div>
+  <div class="w3-light-grey" style="opacity: 1">
+    <div class="w3-container w3-padding-small w3-center" style="width:100%;background-color:#c83737;opacity: 1">100%</div>
   </div>
   <p class="w3-wide"><i class="fa fa-laptop"></i>Food</p>
   <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-sand w3-center" style="width:100%">100%</div>
+    <div class="w3-container w3-padding-small w3-center" style="width:100%;background-color:#c83737">100%</div>
   </div>
   <p class="w3-wide"><i class="fa fa-photo"></i>Entertainment</p>
   <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-sand w3-center" style="width:100%">100%</div>
+    <div class="w3-container w3-padding-small w3-center" style="width:100%;background-color:#c83737">100%</div>
   </div>
   <p class="w3-wide"><i class="fa fa-photo"></i>Company</p>
   <div class="w3-light-grey">
-    <div id="percentageAttendance" class="w3-container w3-padding-small w3-sand w3-center" style="width:5%">5%</div>
+    <div id="percentageAttendance" class="w3-container w3-padding-small w3-center" style="width:5%;background-color:#c83737">5%</div>
   </div>
 </div>
 
-<div class="w3-row w3-center w3-brown w3-padding-16">
-  <div class="w3-quarter w3-section">
+<div class="w3-row w3-center w3-padding-16 w3-opacity" style="background-color:#c83737">
+  <div class="w3-quarter w3-section" style="color: #f4e3d7;opacity: 1">
     <span id="familyAttending" class="w3-xlarge">7</span><br>
     Family
   </div>
-  <div class="w3-half w3-section">
+  <div class="w3-half w3-section" style="color: #f4e3d7">
     <span class="w3-center w3-padding-large w3-sand w3-xlarge w3-wide w3-animate-opacity">GUESTS <span class="w3-hide-small">ATTENDING</span></span>
   </div>
-  <div class="w3-quarter w3-section">
+  <div class="w3-quarter w3-section" style="color: #f4e3d7">
     <span id="friendsAttending" class="w3-xlarge">0</span><br>
     Friends
   </div>
@@ -116,17 +117,17 @@
 </div>
 
 <!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container w3-opacity-min">
+<div class="bgimg-2 w3-display-container">
   <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">RSVP</span>
+     <span class="w3-xxxlarge w3-text-white w3-wide">RSVP</span>
   </div>
 </div>
 
 <!-- Container (RSVP Section) -->
-<div class="w3-content w3-container w3-padding-64 w3-center" id="rsvp">
+<div class="w3-content w3-container w3-padding-64 w3-center" style="background-color: #f4e3d7cc" id="rsvp">
   <h3 class="w3-center">Preparation is key</h3>
   <p class="w3-center"><em>help us get there by clicking on the button and filling in your details!</em></p>
-<button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px" onclick="RSVPClick()">RSVP</button>
+<button class="w3-button w3-padding-large" style="margin-top:64px;background-color: #c83737" onclick="RSVPClick()">RSVP</button>
 </div>
 
 <!-- Modal for RSVP click-->
@@ -136,7 +137,7 @@
   
   <div class="w3-modal-content w3-animate-zoom w3-center w3-sand" id="modal02Content">
       
-<header class="w3-container w3-brown"> 
+<header class="w3-container" style="background-color: #c83737"> 
         <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
         <h2>RSVP</h2>
       </header>
@@ -196,7 +197,7 @@
                         <input type="file" id="photo" name="photo" accept=".jpg,.png,.jpeg" class="w3-input">
                         <button id="RSVP" name="RSVP" type="submit" form="formRSVP" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">RSVP</button>
 			
-		<footer class="w3-container w3-brown">
+		<footer class="w3-container" style="background-color: #c83737">
                 <p>Look forward to your attendance</p>
                 </footer>
 	</div>
@@ -204,34 +205,34 @@
     </div>
 
 <!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container w3-opacity-min">
+<div class="bgimg-3 w3-display-container">
   <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide">Shopping Registry</span>
+    <span class="w3-xxxlarge w3-text-white w3-wide">Shopping Registry</span>
   </div>
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64 " id="registryList">
+<div class="w3-content w3-container w3-padding-64" style="background-color: #f4e3d7cc" id="registryList">
   <h3 class="w3-center">Registry List:</h3>
   <p class="w3-center"><em>Here are the shops which we have set a Registry up with.<br> Click on the logo to reveal further details</em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row w3-margin">
      
-    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
+    <div class="w3-card w3-col m4" onclick="onClick(this.childNodes[1])" style="background-color:#c83737">
   <img src="./images/mrpricehome_logo.png" alt="MrPHome" id="MrP" style="width:100%">
   <div class="w3-container w3-center">
     <p>Mr Price Home</p>
   </div>
 </div>
 
-    <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
+    <div class="w3-card w3-col m4" onclick="onClick(this.childNodes[1])" style="background-color:#c83737">
   <img src="./images/DionWired.png" alt="MrDWired" id="MrDWired" style="width:100%">
   <div class="w3-container w3-center">
     <p>Dion Wired</p>
   </div>
 </div>
-      <div class="w3-card w3-sand w3-col m4" onclick="onClick(this.childNodes[1])">
+      <div class="w3-card w3-col m4" onclick="onClick(this.childNodes[1])" style="background-color:#c83737">
         <img src="./images/CB.png" alt="Carol&Boydes" id="CandB" style="width:100%">
             <div class="w3-container w3-center">
                 <p>Carol & Boydes</p>
@@ -242,14 +243,14 @@
 </div>
 
 <!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container w3-opacity-min">
+<div class="bgimg-4 w3-display-container">
   <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+     <span class="w3-xxxlarge w3-text-white w3-wide">CONTACT</span>
   </div>
 </div>
 
 <!-- Container (Contact Section) -->
-<div class="w3-content w3-container" id="contact">
+<div class="w3-content w3-container" style="background-color: #f4e3d7cc" id="contact">
 <h3 class="w3-center">WHERE IT'S ALL HAPPENING</h3>
 <p class="w3-center"><em>We would love to hear from you!</em></p>
 
@@ -264,10 +265,7 @@
     <div class="w3-large w3-margin-bottom">
         <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right" onclick="focusEverwood()"></i>85 R114, Gauteng, Johannesburg<br>
         <i class="fa fa-globe fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i><a href="http://everwoodweddings.co.za/">Everwood Weddings Website</a><br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Brandon Phone: +27 66 243 5268<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: bwcfaul@gmail.com<br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Kajal Phone: +27 83 455 5568<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: kajal.tulsi@gmail.com<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: site@faulinginlove.co.za<br>
     </div>
     <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave us a message:</p>
     <form id="formMail" name="formMail">
@@ -280,7 +278,7 @@
     </div>
     </div>
     <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message" id="Message">
-    <button id="sendMail" name="sendMail" type="button" class="w3-button w3-sand w3-right w3-section w3-opacity w3-hover-opacity-off">
+    <button id="sendMail" name="sendMail" type="button" class="w3-button w3-right w3-section" style="background-color:#c83737">
             <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </button>
 </div>
@@ -292,7 +290,7 @@
 <div id="modal03" class="w3-modal" ondblclick="this.style.display='none'">
   
   <div class="w3-modal-content w3-text-black w3-sand w3-center w3-animate-zoom">
-      <header class="w3-container w3-brown"> 
+      <header class="w3-container" style="background-color: #c83737"> 
         <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
         <h2>Server Response</h2>
       </header>
@@ -306,7 +304,7 @@
 <div id="modal04" class="w3-modal" ondblclick="this.style.display='none'">
   
   <div class="w3-modal-content w3-text-black w3-sand w3-center w3-animate-zoom">
-      <header class="w3-container w3-brown"> 
+      <header class="w3-container" style="background-color: #c83737"> 
         <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
         <h2>Login</h2>
       </header>
@@ -323,17 +321,12 @@
   </div>
 </div>
 <!-- Footer -->
-<footer class="w3-center w3-sand w3-padding-64">
-  <a href="#home" class="w3-button w3-brown w3-opacity w3-hover-opacity-off"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+<footer class="w3-center w3-padding-64" style="background-color:#c83737;color:black">
+  <a href="#home" class="w3-button w3-sand"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
   <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+
   </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css/PHP/MySQL</a></p>
 </footer>
 </body>
 </html>

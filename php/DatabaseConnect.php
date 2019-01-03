@@ -9,13 +9,12 @@ private $username = 'faulingi_brandon';
 private $password = 'bran-5496_436518';
 private $database = 'faulingi_wedding_database';
 public $connection = null;
-/*
-private $servername = 'localhost';
-private $username = 'brandon';
-private $password = 'P@ssword';
-private $database = 'wedding_database';
-public $connection = null;
-*/
+
+//private $username = 'brandon';
+//private $password = 'P@ssword';
+//private $database = 'wedding_database';
+
+
 	function Connect()
 	{
             try 
@@ -160,3 +159,52 @@ public $connection = null;
         }
 }
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
