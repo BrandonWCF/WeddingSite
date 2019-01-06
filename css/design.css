@@ -5,17 +5,48 @@ body, html {
     line-height: 1.8;
 }
 body{
-   background-image: url('../images/lotus1.png');
+   background-image: url('../images/pattern1.png');
    background-repeat: repeat; 
-   background-color: #f4e3d7;
+   background-color: #cc6600cc;
 }
 
+.custom-temporary{
+    background-image: url('../images/to-be-announced1.jpeg');
+    width:100%;
+    min-height: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 /* Create a Parallax Effect */
 .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.custom-colour1{
+    /*color: #f4e3d7cc!important;*/
+    color: #cc6600cc!important;
+}
+
+.custom-back-colour1{
+    /*background-color: #f4e3d7cc!important;*/
+    background-color: #cc6600cc!important;
+}
+
+.custom-back-colour3{
+    /*background-color: #f4e3d7cc!important;*/
+    background-color: #cc6600!important;
+}
+
+.custom-colour2{
+    /*color: #c83737!important;*/
+    color: #cc0000!important;
+}
+
+.custom-back-colour2{
+    background-color: #cc0000cc!important;
 }
 
 /* First image (Logo. Full height) */

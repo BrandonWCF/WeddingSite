@@ -18,6 +18,7 @@ if($db->connection != null)
                         $family = False;
                         $attending = False;
                         $image = 'none';
+                        $hAttending = false;
                         if(!empty($_FILES['photo'])){
                             //picture was included
                             $pic = SavePicture();
@@ -65,6 +66,17 @@ if($db->connection != null)
                                 }
                             }
                         }
+                        
+                        if(!empty($_POST['hurdeeAt'])){
+                            $size = count($_POST['hurdeeAt']);
+                            $hAtt = $_POST['hurdeeAt'];
+                            for($i=0;$i < $size;$i++){
+                                if($hAtt[$i] == 'hAtt'){
+                                    $hAttending = true;
+                                }
+                            }
+                        }
+                            
                         $user = Array('FirstName'=>$_POST['firstName'],
                             'surname'=>$_POST['surname'],
                             'cell'=>$_POST['cell'],
@@ -74,7 +86,8 @@ if($db->connection != null)
                             'kAcq'=>$kAcq,
                             'bAcq'=>$bAcq,
                             'family'=>$family,
-                            'imageName'=>$image);
+                            'imageName'=>$image,
+                            'hurdee'=>$hAttending);
                         if(isset($_POST['cAttending'])){
                             $user['child'] = $_POST['cAttending'];
                         }

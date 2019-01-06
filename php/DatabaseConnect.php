@@ -60,8 +60,8 @@ public $connection = null;
             //$stmt = $this->connection->prepare("INSERT INTO users (first_name, surname, cell, attending, mail, join_date, bran_acq, kaj_acq)
             //VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             //$stmt->bind_param("ssibsdbb", $firstname, $lastname, $cell, $attending, $email, $joinDate,$bKnows,$kKnows);
-            $stmt = $this->connection->prepare("INSERT INTO users (first_name, surname, cell, attending, mail, join_date, bran_acq, kaj_acq, family, image_name, number_children)
-            VALUES (:firstname, :lastname, :cell, :attend, :mail, :jDate, :bKn, :kKn, :family, :imgName, :attendingChildren)");
+            $stmt = $this->connection->prepare("INSERT INTO users (first_name, surname, cell, attending, mail, join_date, bran_acq, kaj_acq, family, image_name, number_children,hurdee)
+            VALUES (:firstname, :lastname, :cell, :attend, :mail, :jDate, :bKn, :kKn, :family, :imgName, :attendingChildren, :hurdee)");
             $stmt->bindParam(':firstname', $firstname);
             $stmt->bindParam(':lastname', $lastname);
             $stmt->bindParam(':cell', $cell);
@@ -73,6 +73,7 @@ public $connection = null;
             $stmt->bindParam(':family', $family);
             $stmt->bindParam(':imgName', $img);
             $stmt->bindParam(':attendingChildren', $children);
+            $stmt->bindParam(':hurdee', $hurd);
             //Array('FirstName'=>$_POST['firstName'],'surname'=>$_POST['surname'],'cell'=>$_POST['cell'],'mail'=>$_POST['mail'],'comment'=>$_POST['comment'],'kAcq'=>$_POST['kAcq'],'bAcq'=>$_POST['bAcq'])
             // set parameters and execute
             //echo "First Name: ".$user['FirstName']."surname: ".$user['surname'];
@@ -87,13 +88,14 @@ public $connection = null;
             $family = $user['family'];
             $img = $user['imageName'];
             $children = $user['child'];
-
+            $hurd = $user['hurdee'];
+            
             try{
                 $stmt->execute();
                 $userID = $this->connection->lastInsertId();
                 $test = $this->writeComment($userID,$user['comment']);
                 //echo "The following is the count ".count($user);
-                if(count($user) > 11)
+                if(count($user) > 12)
                 {
                     $test = $this->writePlusOneToDatabase($user,$userID);
                 }

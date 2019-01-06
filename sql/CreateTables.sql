@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS users (
 	kaj_acq boolean default false not null,
         family boolean default false not null,
         number_children int default 0,
+        hurdee boolean default false not null,
 	Primary Key (user_id)
 );
 

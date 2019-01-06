@@ -18,16 +18,16 @@
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
     
-  <div class="w3-bar" id="myNavbar">
+  <div class="w3-bar w3-card custom-back-colour3" id="myNavbar">
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
     <a href="#home" class="w3-bar-item w3-button">HOME</a>    
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT US</a>
     <a href="#rsvp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pencil"></i> RSVP</a>
-    <a href="#registryList" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT US</a>        
+    <a href="#registryList" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>      
     <a href="#accomodation" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i> ACCOMMODATION</a> 
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT US</a>
 </div>
     
     <!-- Navbar on small screens -->
@@ -35,6 +35,7 @@
     <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
     <a href="#rsvp" class="w3-bar-item w3-button" onclick="toggleFunction()">RSVP</a>
     <a href="#registryList" class="w3-bar-item w3-button" onclick="toggleFunction()">REGISTRY LIST</a>
+    <a href="#accomodation" class="w3-bar-item w3-button">ACCOMMODATION</a>
     <a href="#contact" class="w3-bar-item w3-button">CONTACT US</a>
   </div>
     
@@ -45,15 +46,15 @@
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container" id="home">
   <div class="w3-display-middle  w3-hide-small" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity" style="background-color:#c83737;color:#f4e3d7">KAJAL <span>and</span> BRANDON'S WEDDING</span>
+    <span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity custom-colour1 custom-back-colour2">KAJAL <span>and</span> BRANDON'S WEDDING</span>
   </div>
-    <div class="w3-display-middle w3-opacity-min w3-hide-medium w3-hide-large" style="max-width: 80%;background-color:#c83737">
+    <div class="w3-display-middle w3-opacity-min w3-hide-medium w3-hide-large custom-back-colour2" style="max-width: 80%">
         <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity">KAJAL &AMP; BRANDON'S WEDDING</h1>
   </div>
 </div>
 
 <!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" style="background-color: #f4e3d7cc" id="about">
+<div class="w3-content w3-container w3-padding-64 custom-back-colour1" id="about">
   <h3 class="w3-center">ABOUT US</h3>
   <p class="w3-center"><em>We Love Life</em></p>
   <p>We are excited to be entering this new period in our lives together, having started this journey together since 2010 a lot has happened. Up to this point we have managed to spend a third of our life-spans together and have learnt the ups
@@ -74,31 +75,31 @@
   <p class="w3-large w3-center w3-padding-16">What to look forward to:</p>
   <p class="w3-wide"><i class="fa fa-camera"></i>Venue</p>
   <div class="w3-light-grey" style="opacity: 1">
-    <div class="w3-container w3-padding-small w3-center" style="width:100%;background-color:#c83737;opacity: 1">100%</div>
+    <div class="w3-container w3-padding-small w3-center custom-back-colour2" style="width:100%;opacity: 1">100%</div>
   </div>
   <p class="w3-wide"><i class="fa fa-laptop"></i>Food</p>
   <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-center" style="width:100%;background-color:#c83737">100%</div>
+    <div class="w3-container w3-padding-small w3-center custom-back-colour2" style="width:100%">100%</div>
   </div>
   <p class="w3-wide"><i class="fa fa-photo"></i>Entertainment</p>
   <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-center" style="width:100%;background-color:#c83737">100%</div>
+    <div class="w3-container w3-padding-small w3-center custom-back-colour2" style="width:100%">100%</div>
   </div>
   <p class="w3-wide"><i class="fa fa-photo"></i>Company</p>
   <div class="w3-light-grey">
-    <div id="percentageAttendance" class="w3-container w3-padding-small w3-center" style="width:5%;background-color:#c83737">5%</div>
+    <div id="percentageAttendance" class="w3-container w3-padding-small w3-center custom-back-colour2" style="width:5%">5%</div>
   </div>
 </div>
 
-<div class="w3-row w3-center w3-padding-16 w3-opacity" style="background-color:#c83737">
-  <div class="w3-quarter w3-section" style="color: #f4e3d7;opacity: 1">
+<div class="w3-row w3-center w3-padding-16 w3-opacity custom-back-colour2">
+  <div class="w3-quarter w3-section custom-colour1" style="opacity: 1">
     <span id="familyAttending" class="w3-xlarge">7</span><br>
     Family
   </div>
-  <div class="w3-half w3-section" style="color: #f4e3d7">
-    <span class="w3-center w3-padding-large w3-sand w3-xlarge w3-wide w3-animate-opacity">GUESTS <span class="w3-hide-small">ATTENDING</span></span>
+  <div class="w3-half w3-section custom-colour1">
+    <span class="w3-center w3-padding-large custom-back-colour1 w3-xlarge w3-wide w3-animate-opacity">GUESTS <span class="w3-hide-small">ATTENDING</span></span>
   </div>
-  <div class="w3-quarter w3-section" style="color: #f4e3d7">
+  <div class="w3-quarter w3-section custom-colour1">
     <span id="friendsAttending" class="w3-xlarge">0</span><br>
     Friends
   </div>
@@ -124,10 +125,10 @@
 </div>
 
 <!-- Container (RSVP Section) -->
-<div class="w3-content w3-container w3-padding-64 w3-center" style="background-color: #f4e3d7cc" id="rsvp">
+<div class="w3-content w3-container w3-padding-64 w3-center custom-back-colour1" id="rsvp">
   <h3 class="w3-center">Preparation is key</h3>
   <p class="w3-center"><em>help us get there by clicking on the button and filling in your details!</em></p>
-<button class="w3-button w3-padding-large" style="margin-top:64px;background-color: #c83737" onclick="RSVPClick()">RSVP</button>
+<button class="w3-button w3-padding-large" style="margin-top:64px;background-color: #cc0000cc" onclick="RSVPClick()">RSVP</button>
 </div>
 
 <!-- Modal for RSVP click-->
@@ -135,9 +136,9 @@
 <div id="modal02" class="w3-modal" ondblclick="this.style.display='none'">
     
   
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-sand" id="modal02Content">
+  <div class="w3-modal-content w3-animate-zoom w3-center custom-back-colour1" id="modal02Content">
       
-<header class="w3-container" style="background-color: #c83737"> 
+<header class="w3-container custom-back-colour2"> 
         <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
         <h2>RSVP</h2>
       </header>
@@ -174,6 +175,9 @@
                                 <option value="3">3</option>
                                 <option value="4">3+</option>
 			</select>
+                        <input class="w3-check" type="checkbox" id="hAtt" value="hAtt" name="hurdeeAt[]">
+			<label>Attending the Hurdee</label>
+                        <br>
 			<label>Comments</label>
 			<input class="w3-input w3-margin-bottom" placeholder="Snacks are always good" type="text" id="comment" name="comment">			
                         <input class="w3-radio w3-margin-bottom" type="checkbox" name="pRSVP[]" id="pRSVP" value="pRSVP">
@@ -197,7 +201,7 @@
                         <input type="file" id="photo" name="photo" accept=".jpg,.png,.jpeg" class="w3-input">
                         <button id="RSVP" name="RSVP" type="submit" form="formRSVP" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">RSVP</button>
 			
-		<footer class="w3-container" style="background-color: #c83737">
+		<footer class="w3-container custom-back-colour2">
                 <p>Look forward to your attendance</p>
                 </footer>
 	</div>
@@ -212,27 +216,36 @@
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" style="background-color: #f4e3d7cc" id="registryList">
+<div class="w3-content w3-container w3-padding-64 w3-sepia-min custom-back-colour1 custom-temporary" id="registryList">
+
+    <div class="w3-display-middle w3-container w3-hide-small custom-back-colour2 w3-padding-16">
+        <h1 class="w3-center w3-xlarge w3-wide w3-animate-opacity custom-colour1">Bear with us... we are still trying to decided whether we <i>actually</i> need a cat shaped teapot...</h1>
+  </div>
+    <div class="w3-display-middle w3-hide-medium w3-hide-large custom-back-colour2">
+        <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity custom-colour1">Bear with us... we are still trying to decided whether we <i>actually</i> need a cat shaped teapot...</h1>
+  </div>
+
+<!--
   <h3 class="w3-center">Registry List:</h3>
   <p class="w3-center"><em>Here are the shops which we have set a Registry up with.<br> Click on the logo to reveal further details</em></p><br>
 
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  
   <div class="w3-row w3-margin">
      
-    <div class="w3-card w3-col m4" onclick="onClick(this.childNodes[1])" style="background-color:#c83737">
+    <div class="w3-card w3-col m4 custom-back-colour2" onclick="onClick(this.childNodes[1])">
   <img src="./images/mrpricehome_logo.png" alt="MrPHome" id="MrP" style="width:100%">
   <div class="w3-container w3-center">
     <p>Mr Price Home</p>
   </div>
 </div>
 
-    <div class="w3-card w3-col m4" onclick="onClick(this.childNodes[1])" style="background-color:#c83737">
+    <div class="w3-card w3-col m4 custom-back-colour2" onclick="onClick(this.childNodes[1])">
   <img src="./images/DionWired.png" alt="MrDWired" id="MrDWired" style="width:100%">
   <div class="w3-container w3-center">
     <p>Dion Wired</p>
   </div>
 </div>
-      <div class="w3-card w3-col m4" onclick="onClick(this.childNodes[1])" style="background-color:#c83737">
+      <div class="w3-card w3-col m4 custom-back-colour2" onclick="onClick(this.childNodes[1])">
         <img src="./images/CB.png" alt="Carol&Boydes" id="CandB" style="width:100%">
             <div class="w3-container w3-center">
                 <p>Carol & Boydes</p>
@@ -240,6 +253,7 @@
     </div>
       
   </div>
+-->
 </div>
 
 <!-- Third Parallax Image with Portfolio Text -->
@@ -250,7 +264,7 @@
 </div>
 
 <!-- Container (Contact Section) -->
-<div class="w3-content w3-container" style="background-color: #f4e3d7cc" id="contact">
+<div class="w3-content w3-container custom-back-colour1" id="contact">
 <h3 class="w3-center">WHERE IT'S ALL HAPPENING</h3>
 <p class="w3-center"><em>We would love to hear from you!</em></p>
 
@@ -278,7 +292,7 @@
     </div>
     </div>
     <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message" id="Message">
-    <button id="sendMail" name="sendMail" type="button" class="w3-button w3-right w3-section" style="background-color:#c83737">
+    <button id="sendMail" name="sendMail" type="button" class="w3-button w3-right w3-section" style="background-color: #cc0000cc">
             <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </button>
 </div>
@@ -289,8 +303,8 @@
 <!-- Modal for ajax response-->
 <div id="modal03" class="w3-modal" ondblclick="this.style.display='none'">
   
-  <div class="w3-modal-content w3-text-black w3-sand w3-center w3-animate-zoom">
-      <header class="w3-container" style="background-color: #c83737"> 
+  <div class="w3-modal-content w3-text-black custom-back-colour1 w3-center w3-animate-zoom">
+      <header class="w3-container custom-back-colour2"> 
         <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
         <h2>Server Response</h2>
       </header>
@@ -303,8 +317,8 @@
 
 <div id="modal04" class="w3-modal" ondblclick="this.style.display='none'">
   
-  <div class="w3-modal-content w3-text-black w3-sand w3-center w3-animate-zoom">
-      <header class="w3-container" style="background-color: #c83737"> 
+  <div class="w3-modal-content w3-text-black custom-back-colour1 w3-center w3-animate-zoom">
+      <header class="w3-container custom-back-colour2"> 
         <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
         <h2>Login</h2>
       </header>
@@ -313,7 +327,7 @@
             <label>Username</label>
             <input class="w3-input" required type="text" id="loginU" name="loginU">
             <label>Password</label>
-            <input class="w3-input" required type="text" id="loginP" name="loginP">
+            <input class="w3-input" required type="password" id="loginP" name="loginP">
             <button id="formLo" name="formLo" type="submit" form="formL" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">Login</button>
             <div id="loginResponse" style="width:100%;overflow: scroll"></div>
       </div>
@@ -321,8 +335,8 @@
   </div>
 </div>
 <!-- Footer -->
-<footer class="w3-center w3-padding-64" style="background-color:#c83737;color:black">
-  <a href="#home" class="w3-button w3-sand"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+<footer class="w3-center w3-padding-64" style="color:black;background-color:#cc0000cc">
+  <a href="#home" class="w3-button custom-back-colour1"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
   <div class="w3-xlarge w3-section">
 
   </div>
