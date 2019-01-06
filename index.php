@@ -26,7 +26,7 @@
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT US</a>
     <a href="#rsvp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pencil"></i> RSVP</a>
     <a href="#registryList" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>      
-    <a href="#accomodation" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i> ACCOMMODATION</a> 
+    <a href="#accommodation" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i> ACCOMMODATION</a> 
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT US</a>
 </div>
     
@@ -35,7 +35,7 @@
     <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
     <a href="#rsvp" class="w3-bar-item w3-button" onclick="toggleFunction()">RSVP</a>
     <a href="#registryList" class="w3-bar-item w3-button" onclick="toggleFunction()">REGISTRY LIST</a>
-    <a href="#accomodation" class="w3-bar-item w3-button">ACCOMMODATION</a>
+    <a href="#accommodation" class="w3-bar-item w3-button">ACCOMMODATION</a>
     <a href="#contact" class="w3-bar-item w3-button">CONTACT US</a>
   </div>
     
@@ -45,11 +45,11 @@
 
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container" id="home">
-  <div class="w3-display-middle  w3-hide-small" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity custom-colour1 custom-back-colour2">KAJAL <span>and</span> BRANDON'S WEDDING</span>
+  <div class="w3-display-middle  w3-hide-small" style="white-space:nowrap;font-family: monotype corsiva">
+    <span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity custom-back-colour2">Kajal <span>and</span> Brandon's Wedding</span>
   </div>
-    <div class="w3-display-middle w3-opacity-min w3-hide-medium w3-hide-large custom-back-colour2" style="max-width: 80%">
-        <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity">KAJAL &AMP; BRANDON'S WEDDING</h1>
+    <div class="w3-display-middle w3-opacity-min w3-hide-medium w3-hide-large custom-back-colour2" style="max-width: 80%;font-family: monotype corsiva">
+        <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity">Kajal &AMP; Brandon's Wedding</h1>
   </div>
 </div>
 
@@ -91,15 +91,15 @@
   </div>
 </div>
 
-<div class="w3-row w3-center w3-padding-16 w3-opacity custom-back-colour2">
-  <div class="w3-quarter w3-section custom-colour1" style="opacity: 1">
+<div class="w3-row w3-center w3-padding-16 custom-back-colour2">
+  <div class="w3-quarter w3-section" style="opacity: 1">
     <span id="familyAttending" class="w3-xlarge">7</span><br>
     Family
   </div>
-  <div class="w3-half w3-section custom-colour1">
+  <div class="w3-half w3-section w3-opacity-min">
     <span class="w3-center w3-padding-large custom-back-colour1 w3-xlarge w3-wide w3-animate-opacity">GUESTS <span class="w3-hide-small">ATTENDING</span></span>
   </div>
-  <div class="w3-quarter w3-section custom-colour1">
+  <div class="w3-quarter w3-section">
     <span id="friendsAttending" class="w3-xlarge">0</span><br>
     Friends
   </div>
@@ -114,6 +114,16 @@
     <p class="w3-opacity w3-large">Registered under Kajal and Brandon</p>
     <h1>Reference ID</h1>
         <h2 id="refID">########</h2>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal05" class="w3-modal w3-black" onclick="this.style.display='none'" style='z-index: 99999'>
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img07" class="w3-image">
+    <p id="caption1" class="w3-opacity w3-large"></p>
+    <h1>Photo</h1>        
   </div>
 </div>
 
@@ -255,8 +265,78 @@
   </div>
 -->
 </div>
+<!-- Fourth Parallax Image with Portfolio Text -->
+<div class="bgimg-5 w3-display-container">
+  <div class="w3-display-middle">
+     <span class="w3-xxxlarge w3-text-white w3-wide">ACCOMMODATION</span>
+  </div>
+</div>
 
-<!-- Third Parallax Image with Portfolio Text -->
+<!-- Container (Accommodation Section) -->
+<div class="w3-content w3-container custom-back-colour1 w3-padding-64" id="accommodation">
+<h3 class="w3-center">Accommodation near the venue</h3>
+<div class="w3-row w3-margin">
+     
+    <div class="w3-card w3-col m4 custom-back-colour2">
+  <div class="w3-container w3-center">
+    <p>The Garden Venue Boutique Hotel</p>
+  </div>
+    <div class="w3-container w3-center w3-padding-16 custom-back-colour1">
+    <a href='https://thegardenvenue.co.za/'>web-site</a>
+  </div>
+</div>
+
+    <div class="w3-card w3-col m4 custom-back-colour2">
+  <div class="w3-container w3-center">
+    <p>Avianto hotel</p>
+  </div>
+         <div class="w3-container w3-center w3-padding-16 custom-back-colour1">
+    <a href='https://www.avianto.co.za/'>web-site</a>
+  </div>
+</div>
+      <div class="w3-card w3-col m4 custom-back-colour2">
+            <div class="w3-container w3-center">
+                <p>Kloofzicht Lodge</p>
+        </div>
+           <div class="w3-container w3-center w3-padding-16 custom-back-colour1">
+    <a href='https://kloofzicht.co.za/'>web-site</a>
+  </div>
+    </div>
+      
+  </div>
+<h3 class="w3-center">Accommodation near where the Hurdee will happen</h3>
+<div class="w3-row w3-margin">
+     
+    <div class="w3-card w3-col m4 custom-back-colour2">
+  <div class="w3-container w3-center">
+    <p>Tsogo Sun Garden Court Eastgate</p>
+  </div>
+    <div class="w3-container w3-center w3-padding-16 custom-back-colour1">
+    <a href='https://www.tsogosun.com/garden-court-eastgate?chebs=gl-hotel_garden-court-eastgate&utm_source=google&utm_medium=businesslisting&utm_campaign=hotel_garden-court-eastgate'>web-site</a>
+  </div>
+</div>
+
+    <div class="w3-card w3-col m4 custom-back-colour2">
+  <div class="w3-container w3-center">
+    <p>Munday BnB</p>
+  </div>
+         <div class="w3-container w3-center w3-padding-16 custom-back-colour1">
+    <a href='http://www.themunday.com/'>web-site</a>
+  </div>
+</div>
+      <div class="w3-card w3-col m4 custom-back-colour2">
+            <div class="w3-container w3-center">
+                <p>The Nicol Hotel</p>
+        </div>
+           <div class="w3-container w3-center w3-padding-16 custom-back-colour1">
+    <a href='https://www.thenicol.co.za/'>web-site</a>
+  </div>
+    </div>
+      
+  </div>
+</div>
+
+<!-- fifth Parallax Image with Portfolio Text -->
 <div class="bgimg-4 w3-display-container">
   <div class="w3-display-middle">
      <span class="w3-xxxlarge w3-text-white w3-wide">CONTACT</span>
