@@ -43,8 +43,8 @@ function loginClick(e){
         var toAdd = new FormData(document.getElementById('formLog'));
         toAdd.append("Login","Login");
         $.ajax({
-            //url: "http://www.faulinginlove.co.za/php/quickLogin.php",
-            url: "http://localhost:80/WeddingSite/php/quickLogin.php",
+            url: "http://www.faulingilove.co.za/php/quickLogin.php",
+            //url: "http://localhost:80/WeddingSite/php/quickLogin.php",
             type: "POST",
             data: toAdd,
             contentType: false,
@@ -96,8 +96,8 @@ function sendRSVPClick(e){
     //console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
-            //url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
-            url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
+            url: "http://www.faulingilove.co.za/php/RSVPuser.php",
+            //url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
             type: "POST",
             data: new FormData(document.getElementById('formRSVP')),
             contentType: false,
@@ -118,8 +118,8 @@ function sendEmailClick(e){
         e.preventDefault();
         //console.log("SENDING MAIL");
         $.ajax({
-            //url: "http://www.faulinginlove.co.za/php/email.php",
-            url: "http://localhost:80/WeddingSite/php/email.php",
+            url: "http://www.faulingilove.co.za/php/email.php",
+            //url: "http://localhost:80/WeddingSite/php/email.php",
             type: "POST",
             data: new FormData(document.getElementById('formMail')),
             contentType: false,
@@ -240,8 +240,8 @@ function refreshScreen(e){
         var refData = new FormData();
         refData.append("Refresh","Home");
         $.ajax({
-        //url: "http://www.faulinginlove.co.za/php/refreshView.php",
-        url: "http://localhost:80/WeddingSite/php/refreshView.php",
+        url: "http://www.faulingilove.co.za/php/refreshView.php",
+        //url: "http://localhost:80/WeddingSite/php/refreshView.php",
         type: "POST",
         data: refData,
         contentType: false,
