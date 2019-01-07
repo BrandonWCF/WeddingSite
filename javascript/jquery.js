@@ -1,10 +1,10 @@
 $(document).ready(function (e) {
-    console.log("Document Ready");
+    //console.log("Document Ready");
     $("#sendMail").click(function (e) {
         sendEmailClick(e);
     });
     $("#RSVP").click(function (e) {
-        console.log(document.getElementById('formRSVP').reportValidity());
+        //console.log(document.getElementById('formRSVP').reportValidity());
         if(document.getElementById('formRSVP').reportValidity())
         sendRSVPClick(e);
     });
@@ -21,12 +21,12 @@ $(document).ready(function (e) {
         checkRepeatMailandCell();
     });
     $("#mockLogin").click(function (){
-        console.log("Login in");
+        //console.log("Login in");
         document.getElementById('modal04').style.display = 'block';
     });
     
     $("#formLo").click(function (){
-        console.log("Sending Username and password");
+        //console.log("Sending Username and password");
         loginClick();
     });
     refreshScreen(e);
@@ -35,16 +35,16 @@ $(document).ready(function (e) {
 function loginClick(e){
     var loadAnim = document.getElementById('loading');
     loadAnim.style.display = "block";
-    console.log("LOGIN");
-    console.log(loadAnim.style.display);
-    console.log("LOGIN1");
-    console.log(loadAnim);
-    console.log("LOGIN2");
+    //console.log("LOGIN");
+    //console.log(loadAnim.style.display);
+    //console.log("LOGIN1");
+    //console.log(loadAnim);
+    //console.log("LOGIN2");
         var toAdd = new FormData(document.getElementById('formLog'));
         toAdd.append("Login","Login");
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/quickLogin.php",
-            //url: "http://localhost:80/WeddingSite/php/quickLogin.php",
+            //url: "http://www.faulinginlove.co.za/php/quickLogin.php",
+            url: "http://localhost:80/WeddingSite/php/quickLogin.php",
             type: "POST",
             data: toAdd,
             contentType: false,
@@ -56,21 +56,21 @@ function loginClick(e){
             },
             error: ajaxError(e)
         });
-        //console.log(new FormData(this));
+        ////console.log(new FormData(this));
 }
 
 function loginGD(data){
     
-    console.log("setting to none:");
+    //console.log("setting to none:");
     if(data == ""){
-        console.log("Nothing was returned");
+        //console.log("Nothing was returned");
     }else if(data == null){
-        console.log("Null was returned");
+        //console.log("Null was returned");
     }else{
         var received = JSON.parse(data);
-        console.log(received);
+        //console.log(received);
         if(received == "FAIL"){
-            console.log("Incorrect Login Details");
+            //console.log("Incorrect Login Details");
         }
         else{
             var tableData = "";
@@ -88,11 +88,11 @@ function loginGD(data){
 
 function sendRSVPClick(e){
     document.getElementById('loading').style.display = "block";
-    console.log("SUBMITTING RSVP");
+    //console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
-            //url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
+            //url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
+            url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
             type: "POST",
             data: new FormData(document.getElementById('formRSVP')),
             contentType: false,
@@ -105,16 +105,16 @@ function sendRSVPClick(e){
             },
             error: ajaxError(e)
         });
-        //console.log(new FormData(this));
+        ////console.log(new FormData(this));
 }
 
 function sendEmailClick(e){ 
         document.getElementById('loading').style.display = "block";
         e.preventDefault();
-        console.log("SENDING MAIL");
+        //console.log("SENDING MAIL");
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/email.php",
-            //url: "http://localhost:80/WeddingSite/php/email.php",
+            //url: "http://www.faulinginlove.co.za/php/email.php",
+            url: "http://localhost:80/WeddingSite/php/email.php",
             type: "POST",
             data: new FormData(document.getElementById('formMail')),
             contentType: false,
@@ -125,18 +125,18 @@ function sendEmailClick(e){
                 ajaxMailReceived(data);
             },
             error: ajaxError(e)
-        }); //console.log(new FormData(document.getElementById('formMail')));
+        }); ////console.log(new FormData(document.getElementById('formMail')));
 }
 
 function ajaxSent() {
-    console.log("Sent");
+    //console.log("Sent");
     document.getElementById('loading').style.display = "block";
-    console.log(document.getElementById('loading'));
+    //console.log(document.getElementById('loading'));
 }
 
 function ajaxReceived(data) {
     
-    console.log("setting to none:");
+    //console.log("setting to none:");
     if (data != null) {
 
         if (data == 'invalid')
@@ -149,31 +149,31 @@ function ajaxReceived(data) {
             // view uploaded file.
             // $("#preview").html(data).fadeIn();
             // $("#RSVP")[0].reset(); 
-            console.log("Success" + data);
+            //console.log("Success" + data);
             
             if(data.includes('true')){
                 if(data.includes('No file attached')){
-                    console.log('No file attached');
-                    //console.log('Successfully saved to database');
+                    //console.log('No file attached');
+                    ////console.log('Successfully saved to database');
                     displayMessage("Message was successfully sent - No picture was included");
                     if(data.includes('no partner rsvp')){
                         displayMessage("Message was successfully sent<br>No partner RSVP<br>No picture was included");
-                        console.log(data);
+                        //console.log(data);
                     }
                     else{
                         displayMessage("Message was successfully sent<br>No picture was included");
-                        console.log(data);
+                        //console.log(data);
                     }
                 }
                 else{
-                    //console.log('Successfully saved to database');
+                    ////console.log('Successfully saved to database');
                     if(data.includes('no partner rsvp')){
                         displayMessage("Message was successfully sent<br>No partner RSVP<br>");
-                        console.log(data);
+                        //console.log(data);
                     }
                     else{
                         displayMessage("Message was successfully sent");
-                        console.log(data);
+                        //console.log(data);
                     }
                 }
                 document.getElementById('modal02').style.display = 'none';
@@ -183,22 +183,22 @@ function ajaxReceived(data) {
             }
         }
     } else {
-        console.log("Data is null");
+        //console.log("Data is null");
         displayMessage("Unsuccessful data is null");
     }
     setDisplayToNone();
 }
 
 function ajaxError(e) {
-    console.log(e);
+    //console.log(e);
     setDisplayToNone();
-    console.log("setting to none:");
+    //console.log("setting to none:");
 }
 
 function ajaxMailSent() {
-    console.log("ajaxMailSent: Sent Mail");
+    //console.log("ajaxMailSent: Sent Mail");
     document.getElementById('loading').style.display = "block";
-    console.log(document.getElementById('loading'));
+    //console.log(document.getElementById('loading'));
 }
 
 function setDisplayToNone(){
@@ -207,36 +207,36 @@ function setDisplayToNone(){
 
 function ajaxMailReceived(data) {
 
-console.log("setting to none:");
+//console.log("setting to none:");
     if (data != null) {
 
         if (data == 'invalid')
         {
             // invalid file format.
-            console.log("ajaxMailReceived: Failed to send message")
+            //console.log("ajaxMailReceived: Failed to send message")
             displayMessage("Message was not successfully sent");
         } else
         {
             // view uploaded file.
             // $("#preview").html(data).fadeIn();
             // $("#RSVP")[0].reset(); 
-            console.log("ajaxMailReceived: Success: " + data);
+            //console.log("ajaxMailReceived: Success: " + data);
             displayMessage("Message was successfully sent" + data);
         }
     } else {
-        console.log("ajaxMailReceived: Data is null")
+        //console.log("ajaxMailReceived: Data is null")
         displayMessage("Message was not successfully sent - no data received back from the server");
     }
     setDisplayToNone();
 }
 
 function refreshScreen(e){
-        console.log('REFRESHING SCREEN');
+        //console.log('REFRESHING SCREEN');
         var refData = new FormData();
         refData.append("Refresh","Home");
         $.ajax({
-        url: "http://www.faulinginlove.co.za/php/refreshView.php",
-        //url: "http://localhost:80/WeddingSite/php/refreshView.php",
+        //url: "http://www.faulinginlove.co.za/php/refreshView.php",
+        url: "http://localhost:80/WeddingSite/php/refreshView.php",
         type: "POST",
         data: refData,
         contentType: false,
@@ -255,21 +255,21 @@ function ajaxRefreshScreenReceive(data) {
         if (data == 'invalid')
         {
             // invalid file format.
-            console.log("ajaxRefreshScreenReceive: Failed to refresh view")
+            //console.log("ajaxRefreshScreenReceive: Failed to refresh view")
         } else
         {
             // view uploaded file.
             // $("#preview").html(data).fadeIn();
             // $("#RSVP")[0].reset(); 
             var data = JSON.parse(data);
-            console.log(data);
+            //console.log(data);
             if(typeof(data) === 'object'){
                 var famAttendance = 0;
                 var frAttendance = 0;
                 var attendance = data.length;
                 document.getElementById('percentageAttendance').innerHTML = attendance + "%";
                 data.forEach((user, index) => {  
-                    console.log(user);
+                    //console.log(user);
                     if(user['family'] === '1'){
                         famAttendance++;
                         if(user['plusones_id'] !== null){
@@ -292,27 +292,27 @@ function ajaxRefreshScreenReceive(data) {
                 document.getElementById('familyAttending').innerHTML = famAttendance;
                 document.getElementById('friendsAttending').innerHTML = frAttendance;
             }else{
-                console.log("Incorrect Result:" + data);
+                //console.log("Incorrect Result:" + data);
             }
         }
     } else {
-        console.log("ajaxRefreshScreenReceive: Data is null")
+        //console.log("ajaxRefreshScreenReceive: Data is null")
     }
 }
 
 function checkPartnerRSVP(){
     var checkbox = document.getElementById('pRSVP');
-    console.log("The following is checking up the value for the pRSVP checkbox");
-    console.log(checkbox);
+    //console.log("The following is checking up the value for the pRSVP checkbox");
+    //console.log(checkbox);
     if(checkbox.checked == true){
-        console.log("Checkbox is checked");
+        //console.log("Checkbox is checked");
         document.getElementById('partnerDetails').style.display = 'block';
         document.getElementById('pfirstName').required = true;
         document.getElementById('psurname').required = true;
         document.getElementById('pCell').required = true;        
     }
     else{
-        console.log("Checkbox is not checked");
+        //console.log("Checkbox is not checked");
         document.getElementById('partnerDetails').style.display = 'none';
         document.getElementById('pfirstName').required = false;
         document.getElementById('psurname').required = false;
@@ -323,9 +323,9 @@ function checkPartnerRSVP(){
 function checkRepeatMailandCell(){
     var mailCheckbox = document.getElementById('rMail');
     var cellCheckbox = document.getElementById('rCell');
-    console.log("checkRepeatMailandCell");
-    console.log(mailCheckbox.checked);
-    console.log(cellCheckbox.checked);
+    //console.log("checkRepeatMailandCell");
+    //console.log(mailCheckbox.checked);
+    //console.log(cellCheckbox.checked);
     if(mailCheckbox.checked == true || cellCheckbox.checked == true ){
         if(mailCheckbox.checked == true){
             document.getElementById('pMail').value = document.getElementById('mail').value;
@@ -338,9 +338,9 @@ function checkRepeatMailandCell(){
 
 // Modal Image Gallery
 function onClick(element) {
-    console.log(element);
+    //console.log(element);
   document.getElementById("img01").src = element.src;
-  console.log(element.id)
+  //console.log(element.id)
   switch(element.id){
     case'CandB':    
         document.getElementById("refID").innerHTML = '123456879';
@@ -361,7 +361,7 @@ function onClick(element) {
         document.getElementById("refID").innerHTML = '123456879';
     break;
     default:
-        console.log(element.id);
+        //console.log(element.id);
                      
       
   }
@@ -371,7 +371,7 @@ function onClick(element) {
 }
 
 function onImageClick(element) {
-    console.log(element);
+    //console.log(element);
   document.getElementById("img07").src = element.src;
   
   
