@@ -83,7 +83,7 @@ function loginGD(data){
             document.getElementById('loginResponse').innerHTML += tableData;
         }
     }
-    setDisplayToNone();
+    setTimeOut(setDisplayToNone,300);
 }
 
 function sendRSVPClick(e){
@@ -186,12 +186,12 @@ function ajaxReceived(data) {
         //console.log("Data is null");
         displayMessage("Unsuccessful data is null");
     }
-    setDisplayToNone();
+    setTimeOut(setDisplayToNone,300);
 }
 
 function ajaxError(e) {
     //console.log(e);
-    setDisplayToNone();
+    setTimeOut(setDisplayToNone,300);
     //console.log("setting to none:");
 }
 
@@ -227,7 +227,7 @@ function ajaxMailReceived(data) {
         //console.log("ajaxMailReceived: Data is null")
         displayMessage("Message was not successfully sent - no data received back from the server");
     }
-    setDisplayToNone();
+    setTimeOut(setDisplayToNone,300);
 }
 
 function refreshScreen(e){
