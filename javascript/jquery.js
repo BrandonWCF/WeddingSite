@@ -43,8 +43,8 @@ function loginClick(e){
         var toAdd = new FormData(document.getElementById('formLog'));
         toAdd.append("Login","Login");
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/quickLogin.php",
-            //url: "http://localhost:80/WeddingSite/php/quickLogin.php",
+            //url: "http://www.faulinginlove.co.za/php/quickLogin.php",
+            url: "http://localhost:80/WeddingSite/php/quickLogin.php",
             type: "POST",
             data: toAdd,
             contentType: false,
@@ -73,6 +73,7 @@ function loginGD(data){
             //console.log("Incorrect Login Details");
         }
         else{
+            if(received.length > 0){
             var tableData = "";
             tableData = '<table border=1 class="w3-table"><tr><th>attending</th><th>family</th><th>first_name</th><th>surname</th><th>cell</th><th>bran_acq</th><th>kaj_acq</th><th>comment_made</th><th>mail</th><th>number_children</th><th>plusones_first_name</th><th>plusones_surname</th><th>plusones_mail</th><th>hurdee</th><th>image_name</th><th>plusones_cell</th></tr>';
             received.forEach((user, index) => {
@@ -81,6 +82,10 @@ function loginGD(data){
             tableData += "</table>";
             document.getElementById('loginResponse').innerHTML = "";
             document.getElementById('loginResponse').innerHTML += tableData;
+            }
+            else{
+                console.log("Nothing to display");
+            }
         }
     }
     setTimeout(setDisplayToNone,300);
@@ -91,8 +96,8 @@ function sendRSVPClick(e){
     //console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
-            //url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
+            //url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
+            url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
             type: "POST",
             data: new FormData(document.getElementById('formRSVP')),
             contentType: false,
@@ -113,8 +118,8 @@ function sendEmailClick(e){
         e.preventDefault();
         //console.log("SENDING MAIL");
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/email.php",
-            //url: "http://localhost:80/WeddingSite/php/email.php",
+            //url: "http://www.faulinginlove.co.za/php/email.php",
+            url: "http://localhost:80/WeddingSite/php/email.php",
             type: "POST",
             data: new FormData(document.getElementById('formMail')),
             contentType: false,
@@ -235,8 +240,8 @@ function refreshScreen(e){
         var refData = new FormData();
         refData.append("Refresh","Home");
         $.ajax({
-        url: "http://www.faulinginlove.co.za/php/refreshView.php",
-        //url: "http://localhost:80/WeddingSite/php/refreshView.php",
+        //url: "http://www.faulinginlove.co.za/php/refreshView.php",
+        url: "http://localhost:80/WeddingSite/php/refreshView.php",
         type: "POST",
         data: refData,
         contentType: false,
@@ -412,82 +417,27 @@ function displayMessage(message){
     document.getElementById('ajaxResponse').innerHTML = message;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+//var maps = null;
+var everwood = {lat: -26.018252, lng: 27.8848256};
+var maps = null;
+function initMap() {
+  //Create a map object and center it on everwood
+  maps = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: everwood});
+  // The marker, positioned at everwood
+  //console.log(maps);
+  var marker = new google.maps.Marker({position: everwood, map: maps});
+}
+
+function focusEverwood() {
+    //console.log("Focusing Everwood");
+    var position = new google.maps.LatLng(everwood);
+    maps.setCenter(position);
+}
 
 
 
