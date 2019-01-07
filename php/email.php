@@ -14,8 +14,7 @@ if (!empty($_POST))
         //Mail message:
         require_once "Mail.php";
         $from = "faulinginlove Website <site@faulinginlove.co.za>";
-        $to = "kajal.s.tulsi@gmail.com";
-        $cc = "bwcfaul@gmail";
+        $to = "bwcfaul@gmail";
         $email_subject = 'Hi! faulinginlove.co.za contact page by '.$_POST['Name'];
         $email_body = 'Reply to: '."\r\n".$_POST['Email']."\r\n".'The following is the message:'."\r\n".$_POST['Message'];
         $host = "ssl://cp17.domains.co.za";
@@ -26,7 +25,7 @@ if (!empty($_POST))
         $email_from =  "Site <site@faulinginlove.co.za>";
         $email_address = "site@faulinginlove.co.za";
 
-        $headers = array ('From' => $email_from, 'To' => $to, 'cc' => $cc, 'Subject' => $email_subject, 'Reply-To' => $email_address);
+        $headers = array ('From' => $email_from, 'To' => $to, 'Subject' => $email_subject, 'Reply-To' => $email_address);
         $smtp = Mail::factory('smtp', array ('host' => $host, 'port' => $port, 'auth' => true, 'username' => $username, 'password' => $password));
         $mail = $smtp->send($to, $headers, $email_body);
 

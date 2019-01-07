@@ -4,6 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="./images/favicon3.png" type="image/x-icon"/>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,7 +14,7 @@
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkOPhhbiRakfxnbZiBTO1MKuYN883ynPA&callback=initMap">
     </script>
-<body style="min-width: 499px">
+    <body style="min-width: 499px">
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -40,16 +41,15 @@
   </div>
     
   </div>
-
   
 
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container" id="home">
   <div class="w3-display-middle  w3-hide-small" style="white-space:nowrap;font-family: monotype corsiva">
-    <span class="w3-center w3-padding-large w3-xlarge w3-wide w3-animate-opacity custom-back-colour2">Kajal <span>and</span> Brandon's Wedding</span>
+    <span class="w3-center w3-padding-large w3-xxlarge w3-wide w3-animate-opacity custom-back-colour2">Kajal <span>and</span> Brandon's Wedding</span>
   </div>
     <div class="w3-display-middle w3-opacity-min w3-hide-medium w3-hide-large custom-back-colour2" style="max-width: 80%;font-family: monotype corsiva">
-        <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity">Kajal &AMP; Brandon's Wedding</h1>
+        <h1 class="w3-center w3-padding-large w3-wide w3-large w3-animate-opacity">Kajal &AMP; Brandon's Wedding</h1>
   </div>
 </div>
 
@@ -129,8 +129,9 @@
 
 <!-- Third Parallax Image with Portfolio Text -->
 <div class="bgimg-2 w3-display-container">
-  <div class="w3-display-middle">
-     <span class="w3-xxxlarge w3-text-white w3-wide">RSVP</span>
+  <div class="w3-display-middle heading-shader">
+     <span class="w3-xxlarge w3-text-white w3-wide w3-display-medium w3-display-small w3-hide-large">RSVP</span>
+     <span class="w3-xxxlarge w3-text-white w3-wide w3-display-large w3-hide-small w3-hide-medium">RSVP</span>
   </div>
 </div>
 
@@ -170,13 +171,13 @@
 			<label>acquainted with Brandon</label>
                         <br>
 			<label>First Name</label>
-			<input class="w3-input" required placeholder="Kajal" type="text" id="firstName" name="firstName">
+			<input class="w3-input" required placeholder="Jane" type="text" id="firstName" name="firstName">
 			<label>Surname</label>
-			<input class="w3-input" required placeholder="Tulsi" type="text" id="surname" name="surname">
+			<input class="w3-input" required placeholder="Smith" type="text" id="surname" name="surname">
 			<label>Contact Details</label>
-			<input class="w3-input" required placeholder="0834555568" type="tel" id="cell" name="cell">
+			<input class="w3-input" required placeholder="0123457896" type="tel" id="cell" name="cell">
 			<label>Email Address</label>
-			<input class="w3-input" placeholder="kajal.s.tusi@gmail.com" type="email" id="mail" name="mail">
+			<input class="w3-input" placeholder="example@gmail.com" type="email" id="mail" name="mail">
                         <label>Number of Children attending</label>
 			<select class="w3-select" id="cAttending" name="cAttending">			
 				<option value="0" selected>0</option>
@@ -194,17 +195,17 @@
                         <label>RSVP for Partner</label>
                         <div id="partnerDetails" required name="partnerDetails" style="display: none">
                         <label>Partner First Name</label>
-			<input class="w3-input" required placeholder="Brandon" type="text" id="pfirstName" name="pfirstName">
+			<input class="w3-input" required placeholder="Joe" type="text" id="pfirstName" name="pfirstName">
 			<label>Partner Surname</label>
-			<input class="w3-input" required placeholder="Faul" type="text" id="psurname" name="psurname">
+			<input class="w3-input" required placeholder="Smith" type="text" id="psurname" name="psurname">
 			<label>Partner Contact Details</label>
                         <input class="w3-radio w3-margin-bottom" type="checkbox" name="rCell" id="rCell" value="rCell">
                         <label>same as above</label>
-			<input class="w3-input" placeholder="0662435268" type="tel" id="pCell" name="pCell">
+			<input class="w3-input" placeholder="01234567891" type="tel" id="pCell" name="pCell">
 			<label>Partner Email Address</label>
                         <input class="w3-radio w3-margin-bottom" type="checkbox" name="rMail" id="rMail" value="rMail">
                         <label>same as above</label>
-			<input class="w3-input" placeholder="bwcfaul@gmail.com" type="email" id="pMail" name="pMail">
+			<input class="w3-input" placeholder="example@gmail.com" type="email" id="pMail" name="pMail">
                         </div>
                         <br>                     
                         <label>Add a photo of yourself so we can get familiar with who will be attending (optional)</label>
@@ -220,8 +221,9 @@
 
 <!-- Second Parallax Image with Portfolio Text -->
 <div class="bgimg-3 w3-display-container">
-  <div class="w3-display-middle">
-    <span class="w3-xxxlarge w3-text-white w3-wide">Shopping Registry</span>
+  <div class="w3-display-middle heading-shader">
+    <span class="w3-xxlarge w3-text-white w3-wide w3-display-medium w3-display-small w3-hide-large">SHOPPING REGISTRY</span>
+    <span class="w3-xxxlarge w3-text-white w3-wide w3-display-large w3-hide-small w3-hide-medium">SHOPPING REGISTRY</span>
   </div>
 </div>
 
@@ -229,7 +231,7 @@
 <div class="w3-content w3-container w3-padding-64 w3-sepia-min custom-back-colour1 custom-temporary" id="registryList">
 
     <div class="w3-display-middle w3-container w3-hide-small custom-back-colour2 w3-padding-16">
-        <h1 class="w3-center w3-xlarge w3-wide w3-animate-opacity custom-colour1">Bear with us... we are still trying to decided whether we <i>actually</i> need a cat shaped teapot...</h1>
+        <h1 class="w3-center w3-xlarge w3-wide w3-animate-opacity custom-colour1">Bear with us... we are still trying to decide whether we <i>actually</i> need a cat shaped teapot...</h1>
   </div>
     <div class="w3-display-middle w3-hide-medium w3-hide-large custom-back-colour2">
         <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity custom-colour1">Bear with us... we are still trying to decided whether we <i>actually</i> need a cat shaped teapot...</h1>
@@ -267,8 +269,9 @@
 </div>
 <!-- Fourth Parallax Image with Portfolio Text -->
 <div class="bgimg-5 w3-display-container">
-  <div class="w3-display-middle">
-     <span class="w3-xxxlarge w3-text-white w3-wide">ACCOMMODATION</span>
+  <div class="w3-display-middle heading-shader">
+     <span class="w3-xxlarge w3-text-white w3-wide w3-display-small w3-display-medium w3-hide-large">ACCOMMODATION</span>
+     <span class="w3-xxxlarge w3-text-white w3-wide w3-display-large w3-hide-small w3-hide-medium">ACCOMMODATION</span>
   </div>
 </div>
 
@@ -338,8 +341,9 @@
 
 <!-- fifth Parallax Image with Portfolio Text -->
 <div class="bgimg-4 w3-display-container">
-  <div class="w3-display-middle">
-     <span class="w3-xxxlarge w3-text-white w3-wide">CONTACT</span>
+  <div class="w3-display-middle heading-shader">
+     <span class="w3-xxlarge w3-text-white w3-wide w3-display-medium w3-display-small w3-hide-large">CONTACT</span>
+     <span class="w3-xxxlarge w3-text-white w3-wide w3-display-large w3-hide-small w3-hide-medium">CONTACT</span>
   </div>
 </div>
 
@@ -420,7 +424,7 @@
   <div class="w3-xlarge w3-section">
 
   </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css/PHP/MySQL</a></p>
+  
 </footer>
 </body>
 </html>
