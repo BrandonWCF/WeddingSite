@@ -415,7 +415,7 @@
             <label>Password</label>
             <input class="w3-input" required type="password" id="loginP" name="loginP">
             <button id="formLo" name="formLo" type="submit" form="formL" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">Login</button>
-            <div id="loginResponse" style="width:100%;overflow: scroll"></div>
+            <div id="loginResponse" style="width:100%;overflow: scroll;max-height: 400px"></div>
       </div>
       </form> 
   </div>
