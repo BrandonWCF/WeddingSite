@@ -33,12 +33,18 @@ $(document).ready(function (e) {
 });
 
 function loginClick(e){
+    var loadAnim = document.getElementById('loading');
+    loadAnim.style.display = "block";
     console.log("LOGIN");
+    console.log(loadAnim.style.display);
+    console.log("LOGIN1");
+    console.log(loadAnim);
+    console.log("LOGIN2");
         var toAdd = new FormData(document.getElementById('formLog'));
         toAdd.append("Login","Login");
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/quickLogin.php",
-            //url: "http://localhost:80/WeddingSite/php/quickLogin.php",
+            //url: "http://www.faulinginlove.co.za/php/quickLogin.php",
+            url: "http://localhost:80/WeddingSite/php/quickLogin.php",
             type: "POST",
             data: toAdd,
             contentType: false,
@@ -54,6 +60,8 @@ function loginClick(e){
 }
 
 function loginGD(data){
+    
+    console.log("setting to none:");
     if(data == ""){
         console.log("Nothing was returned");
     }else if(data == null){
@@ -74,14 +82,16 @@ function loginGD(data){
             document.getElementById('loginResponse').innerHTML += tableData;
         }
     }
+    setTimeout(setDisplayToNone, 200);
 }
 
 function sendRSVPClick(e){
+    document.getElementById('loading').style.display = "block";
     console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
-            //url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
+            //url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
+            url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
             type: "POST",
             data: new FormData(document.getElementById('formRSVP')),
             contentType: false,
@@ -98,11 +108,12 @@ function sendRSVPClick(e){
 }
 
 function sendEmailClick(e){ 
+        document.getElementById('loading').style.display = "block";
         e.preventDefault();
         console.log("SENDING MAIL");
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/email.php",
-            //url: "http://localhost:80/WeddingSite/php/email.php",
+            //url: "http://www.faulinginlove.co.za/php/email.php",
+            url: "http://localhost:80/WeddingSite/php/email.php",
             type: "POST",
             data: new FormData(document.getElementById('formMail')),
             contentType: false,
@@ -118,9 +129,13 @@ function sendEmailClick(e){
 
 function ajaxSent() {
     console.log("Sent");
+    document.getElementById('loading').style.display = "block";
+    console.log(document.getElementById('loading'));
 }
 
 function ajaxReceived(data) {
+    
+    console.log("setting to none:");
     if (data != null) {
 
         if (data == 'invalid')
@@ -170,17 +185,28 @@ function ajaxReceived(data) {
         console.log("Data is null");
         displayMessage("Unsuccessful data is null");
     }
+    setTimeout(setDisplayToNone, 200);
 }
 
 function ajaxError(e) {
-    console.log(e)
+    console.log(e);
+    setTimeout(setDisplayToNone, 200);
+    console.log("setting to none:");
 }
 
 function ajaxMailSent() {
     console.log("ajaxMailSent: Sent Mail");
+    document.getElementById('loading').style.display = "block";
+    console.log(document.getElementById('loading'));
+}
+
+function setDisplayToNone(){
+    document.getElementById('loading').style.display = "none";
 }
 
 function ajaxMailReceived(data) {
+
+console.log("setting to none:");
     if (data != null) {
 
         if (data == 'invalid')
@@ -200,6 +226,7 @@ function ajaxMailReceived(data) {
         console.log("ajaxMailReceived: Data is null")
         displayMessage("Message was not successfully sent - no data received back from the server");
     }
+    setTimeout(setDisplayToNone, 200);
 }
 
 function refreshScreen(e){
@@ -207,8 +234,8 @@ function refreshScreen(e){
         var refData = new FormData();
         refData.append("Refresh","Home");
         $.ajax({
-        url: "http://www.faulinginlove.co.za/php/refreshView.php",
-        //url: "http://localhost:80/WeddingSite/php/refreshView.php",
+        //url: "http://www.faulinginlove.co.za/php/refreshView.php",
+        url: "http://localhost:80/WeddingSite/php/refreshView.php",
         type: "POST",
         data: refData,
         contentType: false,

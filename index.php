@@ -15,7 +15,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkOPhhbiRakfxnbZiBTO1MKuYN883ynPA&callback=initMap">
     </script>
     <body style="min-width: 499px">
-
+        
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
     
@@ -41,8 +41,10 @@
   </div>
     
   </div>
-  
-
+<div id="loading" class="loader-container">
+<div class="loader"></div>
+<div class="loader-text">Please Wait...</div>
+</div>
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container" id="home">
   <div class="w3-display-middle  w3-hide-small" style="white-space:nowrap;font-family: monotype corsiva">
@@ -144,7 +146,7 @@
 
 <!-- Modal for RSVP click-->
 
-<div id="modal02" class="w3-modal" ondblclick="this.style.display='none'">
+<div id="modal02" class="w3-modal">
     
   
   <div class="w3-modal-content w3-animate-zoom w3-center custom-back-colour1" id="modal02Content">

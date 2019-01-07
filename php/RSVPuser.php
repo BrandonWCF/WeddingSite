@@ -1,5 +1,7 @@
 <?php
 require_once('./DatabaseConnect.php');
+require_once('./email.php');
+$mail = New Mailer;
 $db = New DatabaseHandler;
 $db->Connect();
 $result = null;
@@ -88,9 +90,10 @@ if($db->connection != null)
                             'family'=>$family,
                             'imageName'=>$image,
                             'hurdee'=>$hAttending);
+                        $mail->sendMessage($_POST['firstName'], $_POST['mail'], "The following user ".$_POST['firstName']." tried to RSVP, check the database to ensure that they are in and see if they are attending", "RSVP");
                         if(isset($_POST['cAttending'])){
                             $user['child'] = $_POST['cAttending'];
-                        }
+                        }                        
                         if(!empty($_POST['pRSVP'])){
                             $size = count($_POST['pRSVP']);
                             $cacq = $_POST['pRSVP'];
