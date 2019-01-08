@@ -235,7 +235,7 @@
         <h1 class="w3-center w3-xlarge w3-wide w3-animate-opacity custom-colour1">Bear with us... we are still trying to decide whether we <i>actually</i> need a cat shaped teapot...</h1>
   </div>
     <div class="w3-display-middle w3-hide-medium w3-hide-large custom-back-colour2">
-        <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity custom-colour1">Bear with us... we are still trying to decided whether we <i>actually</i> need a cat shaped teapot...</h1>
+        <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity custom-colour1">Bear with us... we are still trying to decide whether we <i>actually</i> need a cat shaped teapot...</h1>
   </div>
 
 <!--
