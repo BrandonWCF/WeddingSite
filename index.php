@@ -10,7 +10,7 @@ function ae_detect_ie()
 }
 
 if (ae_detect_ie()) { 
-    include_once './suggestedBrowsers.php';
+    include_once './homePage.php';
 }else{
     include_once './homePage.php';
 }
