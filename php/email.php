@@ -1,4 +1,9 @@
 <?php
+$origin = $_SERVER['HTTP_ORIGIN'];
+$pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
+if (preg_match($pattern,$origin, $matches)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+}
 ini_set("include_path", '/home/faulingi/php:' . ini_get("include_path"));
 //set_include_path("c:/xampp/php/pear/");
 require_once "Mail.php";

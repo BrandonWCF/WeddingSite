@@ -1,5 +1,9 @@
 <?php
-
+$origin = $_SERVER['HTTP_ORIGIN'];
+$pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
+if (preg_match($pattern,$origin, $matches)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+}
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates

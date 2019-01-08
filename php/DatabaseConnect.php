@@ -1,4 +1,9 @@
 <?php
+$origin = $_SERVER['HTTP_ORIGIN'];
+$pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
+if (preg_match($pattern,$origin, $matches)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+}
 //Useful for printing out array values to the UI so that you can see there layout... Used it on the select statements of fetchNamesOfAttendingUsers()
 //print_r($users);
 Class DatabaseHandler
