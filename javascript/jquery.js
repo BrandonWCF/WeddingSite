@@ -43,7 +43,7 @@ function loginClick(e){
         var toAdd = new FormData(document.getElementById('formLog'));
         toAdd.append("Login","Login");
         $.ajax({
-            url: "http://www.faulingilove.co.za/php/quickLogin.php",
+            url: "http://www.faulinginlove.co.za/php/quickLogin.php",
             //url: "http://localhost:80/WeddingSite/php/quickLogin.php",
             type: "POST",
             data: toAdd,
@@ -63,9 +63,9 @@ function loginGD(data){
     
     //console.log("setting to none:");
     if(data == ""){
-        //console.log("Nothing was returned");
+        console.log("Nothing was returned");
     }else if(data == null){
-        //console.log("Null was returned");
+        console.log("Null was returned");
     }else{
         var received = JSON.parse(data);
         //console.log(received);
@@ -96,7 +96,7 @@ function sendRSVPClick(e){
     //console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
-            url: "http://www.faulingilove.co.za/php/RSVPuser.php",
+            url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
             //url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
             type: "POST",
             data: new FormData(document.getElementById('formRSVP')),
@@ -118,7 +118,7 @@ function sendEmailClick(e){
         e.preventDefault();
         //console.log("SENDING MAIL");
         $.ajax({
-            url: "http://www.faulingilove.co.za/php/email.php",
+            url: "http://www.faulinginlove.co.za/php/email.php",
             //url: "http://localhost:80/WeddingSite/php/email.php",
             type: "POST",
             data: new FormData(document.getElementById('formMail')),
@@ -240,7 +240,7 @@ function refreshScreen(e){
         var refData = new FormData();
         refData.append("Refresh","Home");
         $.ajax({
-        url: "http://www.faulingilove.co.za/php/refreshView.php",
+        url: "http://www.faulinginlove.co.za/php/refreshView.php",
         //url: "http://localhost:80/WeddingSite/php/refreshView.php",
         type: "POST",
         data: refData,

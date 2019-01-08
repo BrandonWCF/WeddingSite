@@ -1,5 +1,6 @@
 <?php
-set_include_path("c:/xampp/php/pear/");
+ini_set("include_path", '/home/faulingi/php:' . ini_get("include_path"));
+//set_include_path("c:/xampp/php/pear/");
 require_once "Mail.php";
 /* 
  * To change this license header, choose License Headers in Project Properties.
@@ -16,7 +17,7 @@ function sendMessage($name,$email,$message,$type){
         $to = "bwcfaul@gmail.com";
         $cc = "kajal.s.tulsi.com";
         $email_subject = 'Hi! faulinginlove.co.za '.$type.' page by '.$name;
-        $email_body = 'Reply to: '."\r\n".$email."\r\n".'The following is the message:'."\r\n".$message;
+        $email_body = 'Hi! faulinginlove.co.za '.$type.' page by '.$name."\r\n".'Reply to: '."\r\n".$email."\r\n".'The following is the message:'."\r\n".$message;
         $host = "ssl://cp17.domains.co.za";
         $username = "site@faulinginlove.co.za";
         $password = "bran-5496";
