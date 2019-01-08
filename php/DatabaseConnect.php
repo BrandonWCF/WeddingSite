@@ -11,13 +11,13 @@ Class DatabaseHandler
 
 private $servername = 'localhost';
 public $connection = null;
-private $username = 'faulingi_brandon';
-private $password = 'bran-5496_436518';
-private $database = 'faulingi_wedding_database';
+//private $username = 'faulingi_brandon';
+//private $password = 'bran-5496_436518';
+//private $database = 'faulingi_wedding_database';
 
-//private $username = 'brandon';
-//private $password = 'P@ssword';
-//private $database = 'wedding_database';
+private $username = 'brandon';
+private $password = 'P@ssword';
+private $database = 'wedding_database';
 
 
 	function Connect()

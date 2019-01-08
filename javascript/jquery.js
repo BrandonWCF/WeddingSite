@@ -43,8 +43,8 @@ function loginClick(e){
         var toAdd = new FormData(document.getElementById('formLog'));
         toAdd.append("Login","Login");
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/quickLogin.php",
-            //url: "http://localhost:80/WeddingSite/php/quickLogin.php",
+            //url: "http://www.faulinginlove.co.za/php/quickLogin.php",
+            url: "http://localhost:80/WeddingSite/php/quickLogin.php",
             type: "POST",
             data: toAdd,
             contentType: false,
@@ -76,9 +76,14 @@ function loginGD(data){
             if(received.length > 0){
             var tableData = "";
             tableData = '<table border=1 class="w3-table"><tr><th>attending</th><th>family</th><th>first_name</th><th>surname</th><th>cell</th><th>bran_acq</th><th>kaj_acq</th><th>comment_made</th><th>mail</th><th>number_children</th><th>plusones_first_name</th><th>plusones_surname</th><th>plusones_cell</th><th>plusones_mail</th><th>hurdee</th><th>image_name</th></tr>';
-            received.forEach((user, index) => {
+            //console.log(received);
+            /*received.forEach((user, index) => {
                 tableData += "<tr><td>" + ((user['attending'] == '1')? 'attending' : 'not attending') + "</td><td>" + ((user['family'] == "1")? 'family': 'friend') + "</td><td>" + user['first_name'] + "</td><td>" + user['surname'] + "</td><td>" + user['cell'] + "</td><td>" + ((user['bran_acq'] == "1")? 'true' : 'false') + "</td><td>" + ((user['kaj_acq'] == "1")? 'true' : 'false') + "</td><td>" + user['comment_made'] + "</td><td>" + user['mail'] + "</td><td>" + user['number_children'] + "</td><td>" + user['plusones_first_name'] + "</td><td>" + user['plusones_surname'] + "</td><td>" + user['plusones_cell'] + "</td><td>" + user['plusones_mail'] + "</td><td>" + ((user['hurdee'] == "1")? 'attending' : 'not attending') + "</td><td>" + ((user['image_name'] != 'none')? '<img src="./uploads/' + user['image_name'] + '" class="w3-image w3-round" onclick="onImageClick(this)" alt=' + user['first_name'] + '>' : 'no picture') + "</td></tr>"
-            });
+            });*/
+            for(var j=0;j < received.length;j++){
+                var user = received[j];
+                tableData += "<tr><td>" + ((user['attending'] == '1')? 'attending' : 'not attending') + "</td><td>" + ((user['family'] == "1")? 'family': 'friend') + "</td><td>" + user['first_name'] + "</td><td>" + user['surname'] + "</td><td>" + user['cell'] + "</td><td>" + ((user['bran_acq'] == "1")? 'true' : 'false') + "</td><td>" + ((user['kaj_acq'] == "1")? 'true' : 'false') + "</td><td>" + user['comment_made'] + "</td><td>" + user['mail'] + "</td><td>" + user['number_children'] + "</td><td>" + user['plusones_first_name'] + "</td><td>" + user['plusones_surname'] + "</td><td>" + user['plusones_cell'] + "</td><td>" + user['plusones_mail'] + "</td><td>" + ((user['hurdee'] == "1")? 'attending' : 'not attending') + "</td><td>" + ((user['image_name'] != 'none')? '<img src="./uploads/' + user['image_name'] + '" class="w3-image w3-round" onclick="onImageClick(this)" alt=' + user['first_name'] + '>' : 'no picture') + "</td></tr>"
+            }
             tableData += "</table>";
             document.getElementById('loginResponse').innerHTML = "";
             document.getElementById('loginResponse').innerHTML += tableData;
@@ -96,8 +101,8 @@ function sendRSVPClick(e){
     //console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
-            //url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
+            //url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
+            url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
             type: "POST",
             data: new FormData(document.getElementById('formRSVP')),
             contentType: false,
@@ -118,8 +123,8 @@ function sendEmailClick(e){
         e.preventDefault();
         //console.log("SENDING MAIL");
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/email.php",
-            //url: "http://localhost:80/WeddingSite/php/email.php",
+            //url: "http://www.faulinginlove.co.za/php/email.php",
+            url: "http://localhost:80/WeddingSite/php/email.php",
             type: "POST",
             data: new FormData(document.getElementById('formMail')),
             contentType: false,
@@ -240,8 +245,8 @@ function refreshScreen(e){
         var refData = new FormData();
         refData.append("Refresh","Home");
         $.ajax({
-        url: "http://www.faulinginlove.co.za/php/refreshView.php",
-        //url: "http://localhost:80/WeddingSite/php/refreshView.php",
+        //url: "http://www.faulinginlove.co.za/php/refreshView.php",
+        url: "http://localhost:80/WeddingSite/php/refreshView.php",
         type: "POST",
         data: refData,
         contentType: false,
@@ -254,10 +259,10 @@ function refreshScreen(e){
     });
 }
 
-function ajaxRefreshScreenReceive(data) {
-    if (data != null) {
+function ajaxRefreshScreenReceive(received) {
+    if (received != null) {
 
-        if (data == 'invalid')
+        if (received == 'invalid')
         {
             // invalid file format.
             //console.log("ajaxRefreshScreenReceive: Failed to refresh view")
@@ -265,16 +270,17 @@ function ajaxRefreshScreenReceive(data) {
         {
             // view uploaded file.
             // $("#preview").html(data).fadeIn();
-            // $("#RSVP")[0].reset(); 
-            var data = JSON.parse(data);
+            // $("#RSVP")[0].reset();
+            var data = JSON.parse(received);
             //console.log(data);
             if(typeof(data) === 'object'){
                 var famAttendance = 0;
                 var frAttendance = 0;
                 var attendance = data.length;
                 document.getElementById('percentageAttendance').innerHTML = attendance + "%";
-                data.forEach((user, index) => {  
-                    //console.log(user);
+                for(var j=0;j < data.length;j++){
+                var user = data[j];
+                //console.log(user);
                     if(user['family'] === '1'){
                         famAttendance++;
                         if(user['plusones_id'] !== null){
@@ -288,7 +294,8 @@ function ajaxRefreshScreenReceive(data) {
                         }
                         frAttendance = frAttendance + parseInt(user['number_children']);
                     }
-                });
+                }
+                
                 document.getElementById('percentageAttendance').innerHTML = frAttendance + famAttendance + "%";
                 if(frAttendance + famAttendance < 100)
                     document.getElementById('percentageAttendance').style.width = frAttendance + famAttendance + "%"

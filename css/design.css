@@ -6,8 +6,9 @@ body, html {
 }
 body{
    background-image: url('../images/pattern2.png');
-   background-repeat: repeat; 
-   background-color: #cc6600cc;
+   background-repeat: repeat;
+   background-color: rgb(204,102,0)!important;
+   background-color: rgba(204,102,0,0.8)!important;
 }
 
 .heading-shader{
@@ -30,26 +31,29 @@ body{
 
 .custom-colour1{
     /*color: #f4e3d7cc!important;*/
-    color: #cc6600cc!important;
+    color: rgb(204,102,0)!important;
+    color: rgba(204,102,0,0.8)!important;
 }
 
 .custom-back-colour1{
     /*background-color: #f4e3d7cc!important;*/
-    background-color: #cc6600cc!important;
+    background-color: rgb(204,102,0)!important;
+    background-color: rgba(204,102,0,0.8)!important;
 }
 
 .custom-back-colour3{
     /*background-color: #f4e3d7cc!important;*/
-    background-color: #cc6600!important;
+    background-color: rgb(204,102,0)!important;   
 }
 
 .custom-colour2{
-    /*color: #c83737!important;*/
-    color: #cc0000!important;
+    /*color: #c83737!important;*/    
+    color: rgb(204,0,0)!important;   
 }
 
-.custom-back-colour2{
-    background-color: #cc0000cc!important;
+.custom-back-colour2{    
+    background-color: rgb(204,0,0)!important;
+    background-color: rgba(204,0,0,0.8)!important;
 }
 
 /* First image (Logo. Full height) */
@@ -87,7 +91,7 @@ body{
     .bgimg-1, .bgimg-2, .bgimg-3, bgimg-4, bgimg-5 {
         background-attachment: scroll;
         min-height: 400px;
-        min-width: 499px;
+        min-width: 300px;
     }
 }
 .loader-container{

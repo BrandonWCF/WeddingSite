@@ -176,7 +176,7 @@ function SavePicture(){
 
             if(move_uploaded_file($tmp,$path)) 
             {
-                return $final_image;
+                return $path;
             }
             else
             {
