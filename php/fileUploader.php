@@ -1,8 +1,11 @@
 <?php
+$server = 0;
+if($server){
 $origin = $_SERVER['HTTP_ORIGIN'];
 $pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
-if (preg_match($pattern,$origin, $matches)) {
-    header('Access-Control-Allow-Origin: ' . $origin);
+    if (preg_match($pattern,$origin, $matches)) {
+        header('Access-Control-Allow-Origin: ' . $origin);
+    }
 }
         function uploadFile($file){
             $img = $_FILES['image']['name'];

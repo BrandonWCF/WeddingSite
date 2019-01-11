@@ -417,9 +417,9 @@
       <form id="formLog" name="formLog" onsubmit="return false">
       <div class="w3-container w3-padding-16">
             <label>Username</label>
-            <input class="w3-input" required type="text" id="loginU" name="loginU">
+            <input class="w3-input" required type="text" id="loginU" name="loginU" value="brandon">
             <label>Password</label>
-            <input class="w3-input" required type="password" id="loginP" name="loginP">
+            <input class="w3-input" required type="password" id="loginP" name="loginP" value="bran-%4(6_$3^5!8">
             <button id="formLo" name="formLo" type="submit" form="formL" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">Login</button>
             <div id="loginResponse" style="width:100%;overflow: scroll;max-height: 400px"></div>
       </div>

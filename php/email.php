@@ -1,11 +1,17 @@
 <?php
+$server = 0;
+if($server){
 $origin = $_SERVER['HTTP_ORIGIN'];
 $pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
 if (preg_match($pattern,$origin, $matches)) {
     header('Access-Control-Allow-Origin: ' . $origin);
 }
 ini_set("include_path", '/home/faulingi/php:' . ini_get("include_path"));
-//set_include_path("c:/xampp/php/pear/");
+}
+else{
+    set_include_path("c:/xampp/php/pear/");
+}
+
 require_once "Mail.php";
 /* 
  * To change this license header, choose License Headers in Project Properties.
@@ -15,12 +21,17 @@ require_once "Mail.php";
 $result = "EMPTY";
 Class Mailer
 {
+    public $server = 0;
 function sendMessage($name,$email,$message,$type){
     if(!empty($name) && !empty($email) && !empty($message)){
         require_once "Mail.php";
         $from = "faulinginlove Website <site@faulinginlove.co.za>";
         $to = "bwcfaul@gmail.com";
-        $cc = "kajal.s.tulsi.com";
+        $cc = "bwcfaul@gmail.com";
+        if($server){
+            $to = "bwcfaul@gmail.com";
+            $cc = "kajal.s.tulsi.com";
+        }
         $email_subject = 'Hi! faulinginlove.co.za '.$type.' page by '.$name;
         $email_body = 'Hi! faulinginlove.co.za '.$type.' page by '.$name."\r\n".'Reply to: '."\r\n".$email."\r\n".'The following is the message:'."\r\n".$message;
         $host = "ssl://cp17.domains.co.za";

@@ -5,7 +5,7 @@ $(document).ready(function (e) {
     });
     $("#RSVP").click(function (e) {
         //console.log(document.getElementById('formRSVP').reportValidity());
-        if(document.getElementById('formRSVP').reportValidity())
+        //if(document.getElementById('formRSVP').reportValidity())
         sendRSVPClick(e);
     });
     checkPartnerRSVP();
@@ -20,6 +20,9 @@ $(document).ready(function (e) {
     $("#rCell").click(function () {
         checkRepeatMailandCell();
     });
+    $(".delete").click(function () {
+        deleteTableEntry();
+    });
     $("#mockLogin").click(function (){
         //console.log("Login in");
         document.getElementById('modal04').style.display = 'block';
@@ -31,19 +34,23 @@ $(document).ready(function (e) {
     });
     refreshScreen(e);
 });
-
+var server = 0;
 function loginClick(e){
     var loadAnim = document.getElementById('loading');
+    var setUrl = "http://localhost:80/WeddingSite/php/quickLogin.php";
+    if(server)
+        setUrl = "http://www.faulinginlove.co.za/php/quickLogin.php";
     loadAnim.style.display = "block";
     //console.log("LOGIN");
     //console.log(loadAnim.style.display);
     //console.log("LOGIN1");
     //console.log(loadAnim);
     //console.log("LOGIN2");
+    
         var toAdd = new FormData(document.getElementById('formLog'));
         toAdd.append("Login","Login");
-        $.ajax({
-            url: "http://www.faulinginlove.co.za/php/quickLogin.php",
+        $.ajax({    
+            url: setUrl,
             //url: "http://localhost:80/WeddingSite/php/quickLogin.php",
             type: "POST",
             data: toAdd,
@@ -75,18 +82,22 @@ function loginGD(data){
         else{
             if(received.length > 0){
             var tableData = "";
-            tableData = '<table border=1 class="w3-table"><tr><th>attending</th><th>family</th><th>first_name</th><th>surname</th><th>cell</th><th>bran_acq</th><th>kaj_acq</th><th>comment_made</th><th>mail</th><th>number_children</th><th>plusones_first_name</th><th>plusones_surname</th><th>plusones_cell</th><th>plusones_mail</th><th>hurdee</th><th>image_name</th></tr>';
+            tableData = '<table border=1 class="w3-table w3-centered"><tr><th>Row</th><th>attending</th><th>family</th><th>first_name</th><th>surname</th><th>cell</th><th>bran_acq</th><th>kaj_acq</th><th>comment_made</th><th>mail</th><th>number_children</th><th>plusones_first_name</th><th>plusones_surname</th><th>plusones_cell</th><th>plusones_mail</th><th>hurdee</th><th>image_name</th></tr>';
             //console.log(received);
             /*received.forEach((user, index) => {
                 tableData += "<tr><td>" + ((user['attending'] == '1')? 'attending' : 'not attending') + "</td><td>" + ((user['family'] == "1")? 'family': 'friend') + "</td><td>" + user['first_name'] + "</td><td>" + user['surname'] + "</td><td>" + user['cell'] + "</td><td>" + ((user['bran_acq'] == "1")? 'true' : 'false') + "</td><td>" + ((user['kaj_acq'] == "1")? 'true' : 'false') + "</td><td>" + user['comment_made'] + "</td><td>" + user['mail'] + "</td><td>" + user['number_children'] + "</td><td>" + user['plusones_first_name'] + "</td><td>" + user['plusones_surname'] + "</td><td>" + user['plusones_cell'] + "</td><td>" + user['plusones_mail'] + "</td><td>" + ((user['hurdee'] == "1")? 'attending' : 'not attending') + "</td><td>" + ((user['image_name'] != 'none')? '<img src="./uploads/' + user['image_name'] + '" class="w3-image w3-round" onclick="onImageClick(this)" alt=' + user['first_name'] + '>' : 'no picture') + "</td></tr>"
             });*/
             for(var j=0;j < received.length;j++){
                 var user = received[j];
-                tableData += "<tr><td>" + ((user['attending'] == '1')? 'attending' : 'not attending') + "</td><td>" + ((user['family'] == "1")? 'family': 'friend') + "</td><td>" + user['first_name'] + "</td><td>" + user['surname'] + "</td><td>" + user['cell'] + "</td><td>" + ((user['bran_acq'] == "1")? 'true' : 'false') + "</td><td>" + ((user['kaj_acq'] == "1")? 'true' : 'false') + "</td><td>" + user['comment_made'] + "</td><td>" + user['mail'] + "</td><td>" + user['number_children'] + "</td><td>" + user['plusones_first_name'] + "</td><td>" + user['plusones_surname'] + "</td><td>" + user['plusones_cell'] + "</td><td>" + user['plusones_mail'] + "</td><td>" + ((user['hurdee'] == "1")? 'attending' : 'not attending') + "</td><td>" + ((user['image_name'] != 'none')? '<img src="./uploads/' + user['image_name'] + '" class="w3-image w3-round" onclick="onImageClick(this)" alt=' + user['first_name'] + '>' : 'no picture') + "</td></tr>"
+                tableData += '<tr><td><p><b><i id="del-' + user['user_id'] + '" group="delete" class="fa fa-close"></i></b></p>' + "</td><td>" + ((user['attending'] == '1')? 'attending' : 'not attending') + "</td><td>" + ((user['family'] == "1")? 'family': 'friend') + "</td><td>" + user['first_name'] + "</td><td>" + user['surname'] + "</td><td>" + user['cell'] + "</td><td>" + ((user['bran_acq'] == "1")? 'true' : 'false') + "</td><td>" + ((user['kaj_acq'] == "1")? 'true' : 'false') + "</td><td>" + user['comment_made'] + "</td><td>" + user['mail'] + "</td><td>" + user['number_children'] + "</td><td>" + user['plusones_first_name'] + "</td><td>" + user['plusones_surname'] + "</td><td>" + user['plusones_cell'] + "</td><td>" + user['plusones_mail'] + "</td><td>" + ((user['hurdee'] == "1")? 'attending' : 'not attending') + "</td><td>" + ((user['image_name'] != 'none')? '<img src="./uploads/' + user['image_name'] + '" class="w3-image w3-round" onclick="onImageClick(this)" alt=' + user['first_name'] + '>' : 'no picture') + "</td></tr>"
+                $(document).on('click', '#del-' + user['user_id'], function(e){deleteTableEntry(e)});
+                
+                onsole.log($("#del-" + user['user_id']));
             }
             tableData += "</table>";
             document.getElementById('loginResponse').innerHTML = "";
             document.getElementById('loginResponse').innerHTML += tableData;
+            
             }
             else{
                 console.log("Nothing to display");
@@ -97,11 +108,14 @@ function loginGD(data){
 }
 
 function sendRSVPClick(e){
+    var setUrl = "http://localhost:80/WeddingSite/php/RSVPuser.php";
+    if(server)
+        setUrl = "http://www.faulinginlove.co.za/php/RSVPuser.php";
     document.getElementById('loading').style.display = "block";
     //console.log("SUBMITTING RSVP");
         e.preventDefault();
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/RSVPuser.php",
+            url: setUrl,
             //url: "http://localhost:80/WeddingSite/php/RSVPuser.php",
             type: "POST",
             data: new FormData(document.getElementById('formRSVP')),
@@ -118,12 +132,15 @@ function sendRSVPClick(e){
         ////console.log(new FormData(this));
 }
 
-function sendEmailClick(e){ 
+function sendEmailClick(e){
+        var setUrl = "http://localhost:80/WeddingSite/php/email.php";
+        if(server)
+           setUrl = "http://www.faulinginlove.co.za/php/email.php";
         document.getElementById('loading').style.display = "block";
         e.preventDefault();
         //console.log("SENDING MAIL");
         $.ajax({
-            url: "http://www.faulinginlove.co.za/php/email.php",
+            url: setUrl,
             //url: "http://localhost:80/WeddingSite/php/email.php",
             type: "POST",
             data: new FormData(document.getElementById('formMail')),
@@ -242,10 +259,13 @@ function ajaxMailReceived(data) {
 
 function refreshScreen(e){
         //console.log('REFRESHING SCREEN');
+        var setUrl = "http://localhost:80/WeddingSite/php/refreshView.php";
+        if(server)
+            setUrl = "http://www.faulinginlove.co.za/php/refreshView.php";
         var refData = new FormData();
         refData.append("Refresh","Home");
         $.ajax({
-        url: "http://www.faulinginlove.co.za/php/refreshView.php",
+        url: setUrl,
         //url: "http://localhost:80/WeddingSite/php/refreshView.php",
         type: "POST",
         data: refData,
@@ -271,7 +291,9 @@ function ajaxRefreshScreenReceive(received) {
             // view uploaded file.
             // $("#preview").html(data).fadeIn();
             // $("#RSVP")[0].reset();
+            console.log(received);
             var data = JSON.parse(received);
+            console.log(data);
             //console.log(data);
             if(typeof(data) === 'object'){
                 var famAttendance = 0;
@@ -422,6 +444,13 @@ function toggleFunction() {
 function displayMessage(message){
     document.getElementById('modal03').style.display = "block";
     document.getElementById('ajaxResponse').innerHTML = message;
+}
+
+function deleteTableEntry(e){
+    console.log("Delete Pressed");
+    //console.log(this);
+    console.log(e);
+    console.log(e.type);
 }
 
 /* 

@@ -1,8 +1,11 @@
 <?php
+$server = 0;
+if($server){
 $origin = $_SERVER['HTTP_ORIGIN'];
 $pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
-if (preg_match($pattern,$origin, $matches)) {
-    header('Access-Control-Allow-Origin: ' . $origin);
+    if (preg_match($pattern,$origin, $matches)) {
+        header('Access-Control-Allow-Origin: ' . $origin);
+    }
 }
 require_once('./DatabaseConnect.php');
 require_once('./email.php');

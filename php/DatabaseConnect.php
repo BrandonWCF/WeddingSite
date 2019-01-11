@@ -1,8 +1,11 @@
 <?php
+$server = 0;
+if($server){
 $origin = $_SERVER['HTTP_ORIGIN'];
 $pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
-if (preg_match($pattern,$origin, $matches)) {
-    header('Access-Control-Allow-Origin: ' . $origin);
+    if (preg_match($pattern,$origin, $matches)) {
+        header('Access-Control-Allow-Origin: ' . $origin);
+    }
 }
 //Useful for printing out array values to the UI so that you can see there layout... Used it on the select statements of fetchNamesOfAttendingUsers()
 //print_r($users);
@@ -11,10 +14,10 @@ Class DatabaseHandler
 
 private $servername = 'localhost';
 public $connection = null;
-private $username = 'faulingi_brandon';
-private $password = 'bran-5496_436518';
-private $database = 'faulingi_wedding_database';
-
+private $username = '';
+private $password = '';
+private $database = '';
+private $server = 0;
 //private $username = 'brandon';
 //private $password = 'P@ssword';
 //private $database = 'wedding_database';
@@ -24,6 +27,15 @@ private $database = 'faulingi_wedding_database';
 	{
             try 
             {
+                    if($this->server){
+                        $this->username = 'faulingi_brandon';
+                        $this->password = 'bran-5496_436518';
+                        $this->database = 'faulingi_wedding_database';
+                    }else{
+                        $this->username = 'brandon';
+                        $this->password = 'P@ssword';
+                        $this->database = 'wedding_database';
+                    }
                     $this->connection = new PDO("mysql:host=".$this->servername.";dbname=".$this->database, $this->username, $this->password);
                     // set the PDO error mode to exception
                     $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
