@@ -35,16 +35,18 @@
         <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT US</a>
         <a href="#rsvp" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pencil"></i> RSVP</a>
         <a href="#registryList" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> REGISTRY LIST</a>      
-        <a href="#accommodation" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i> ACCOMMODATION</a> 
+        <a href="#accommodation" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i> ACCOMMODATION</a>
+        <a class="w3-bar-item w3-button w3-hide-small" onclick="FAQClick()"><i class="fa fa-question"></i> FAQ</a>
         <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT US</a>
     </div>
 <!-- Navbar on small screens -->
-    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium custom-back-colour2">
         <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT US</a>
         <a href="#rsvp" class="w3-bar-item w3-button" onclick="toggleFunction()">RSVP</a>
         <a href="#registryList" class="w3-bar-item w3-button" onclick="toggleFunction()">REGISTRY LIST</a>
-        <a href="#accommodation" class="w3-bar-item w3-button">ACCOMMODATION</a>
-        <a href="#contact" class="w3-bar-item w3-button">CONTACT US</a>
+        <a href="#accommodation" class="w3-bar-item w3-button" onclick="toggleFunction()">ACCOMMODATION</a>
+        <a class="w3-bar-item w3-button" onclick="toggleFunction();FAQClick()">FAQ</a>
+        <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT US</a>
     </div>
 <!-- Container for Loader -->
 </div>
@@ -111,6 +113,31 @@
     Friends
   </div>
 </div>
+
+<!-- Modal for FAQ -->
+<div id="modal06" class="w3-modal">
+
+
+  <div class="w3-modal-content w3-animate-zoom w3-center custom-back-colour1">
+
+    <header class="w3-container custom-back-colour2"> 
+        <span class="w3-button w3-large w3-display-topright" onclick="this.parentElement.parentElement.parentElement.style.display='none'" title="Close Modal RSVP"><i class="fa fa-remove"></i></span>
+        <h2>FAQ's</h2>
+      </header>
+                        <div class="w3-content w3-container custom-back-colour1">
+        <h3>Frequently asked Questions</h3>
+        <h2>What's the dress code?</h2>
+        <p>Feel free to come dressed up as your favourite Bollywood star or opt for a more casual formal vibe, just depending on your preference.  This a celebration of two cultures coming together and we would love if our guests showcased it alongside us.</p>
+        <h2>Can I bring a date?</h2>
+        <p>If your invitation says “and Guest,” then yes, if not, we would prefer if it was just you.</p>
+        <h2>When should I send through my RSVP for wedding itself?</h2>
+        <p>As soon as possible is most helpful for us!  Please RSVP by 2 April 2019.</p>
+    </div>
+                <footer class="w3-container custom-back-colour2">
+                <p>Any further questions can be directed through the contact us section</p>
+                </footer>            
+        </div>           
+    </div>
 
 <!-- Modal for full size images on click-->
 <div id="modal01" class="w3-modal w3-black w3-opacity-min" onclick="this.style.display='none'">
@@ -234,13 +261,21 @@
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64 w3-center w3-sepia-min custom-back-colour1 custom-temporary" id="registryList" style="position:relative">
+<div class="w3-content w3-container w3-padding-64 w3-center custom-back-colour1 custom-temporary" id="registryList" style="position:relative">
     
     <div class="w3-display-middle w3-container w3-hide-small custom-back-colour2">
-        <h1 class="w3-center w3-xlarge w3-wide w3-animate-opacity custom-colour1" style="width: 100%">Bear with us... we are still trying to decide whether we <i>actually</i> need a cat shaped teapot...</h1>
+        <p class="w3-center w3-large w3-animate-opacity custom-colour1" style="width: 100%">It turns out that we do not actually need a cat-shaped teapot… </p>
+        <p class="w3-center w3-large w3-animate-opacity custom-colour1" style="width: 100%">But we have managed to identify some items that we would find useful in our new home. You can find these at our online wedding registry:</p>
+        <a href="https://wrapistry.shop/giftregistry/?giftregistry_id=1332">HTTPS://WRAPISTRY.SHOP</a>     
+        <p class="w3-center w3-large w3-animate-opacity custom-colour1" style="width: 100%">and a few more day-to-day items at our instore registry:</p>
+        <p class="w3-center w3-large w3-animate-opacity" style="width: 100%; color:white;">Mr Price Home | Reference: TUL910621"</p>
     </div>
-    <div class="w3-display-middle w3-hide-medium w3-hide-large custom-back-colour2" style="min-width: 80%">
-          <h1 class="w3-center w3-padding-large w3-wide w3-small w3-animate-opacity custom-colour1">Bear with us... we are still trying to decide whether we <i>actually</i> need a cat shaped teapot...</h1>
+    <div class="w3-display-middle w3-hide-medium w3-hide-large custom-back-colour2" style="min-width: 80%">          
+        <p class="w3-center w3-medium w3-animate-opacity custom-colour1" style="width: 100%">It turns out that we do not actually need a cat-shaped teapot… </p>
+        <p class="w3-center w3-medium w3-animate-opacity custom-colour1" style="width: 100%">But we have managed to identify some items that we would find useful in our new home. You can find these at our online wedding registry:</p>
+        <a href="https://wrapistry.shop/giftregistry/?giftregistry_id=1332">HTTPS://WRAPISTRY.SHOP</a>     
+        <p class="w3-center w3-medium w3-animate-opacity custom-colour1" style="width: 100%">and a few more day-to-day items at our instore registry:</p>
+        <p class="w3-center w3-medium w3-animate-opacity" style="width: 100%; color:white;">Mr Price Home | Reference: TUL910621"</p>
     </div>
     
 <!--
@@ -393,7 +428,7 @@
 </div>
 
 <!-- Modal for ajax response-->
-<div id="modal03" class="w3-modal" ondblclick="this.style.display='none'">
+<div id="modal03" class="w3-modal" ondblclick="this.style.display='none'" style='z-index: 999'>
 
   <div class="w3-modal-content w3-text-black custom-back-colour1 w3-center w3-animate-zoom">
       <header class="w3-container custom-back-colour2"> 
@@ -417,9 +452,9 @@
       <form id="formLog" name="formLog" onsubmit="return false">
       <div class="w3-container w3-padding-16">
             <label>Username</label>
-            <input class="w3-input" required type="text" id="loginU" name="loginU" value="brandon">
+            <input class="w3-input" required type="text" id="loginU" name="loginU" value="">
             <label>Password</label>
-            <input class="w3-input" required type="password" id="loginP" name="loginP" value="bran-%4(6_$3^5!8">
+            <input class="w3-input" required type="password" id="loginP" name="loginP" value="">
             <button id="formLo" name="formLo" type="submit" form="formL" class="w3-button w3-margin-bottom w3-margin-top w3-light-grey" style="margin-top:20px;margin-bottom:10px">Login</button>
             <div id="loginResponse" style="width:100%;overflow: scroll;max-height: 400px"></div>
       </div>

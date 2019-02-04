@@ -34,7 +34,9 @@ $(document).ready(function (e) {
     });
     refreshScreen(e);
 });
-var server = 0;
+var server = 1;
+var username ="";
+var password ="";
 function loginClick(e){
     var loadAnim = document.getElementById('loading');
     var setUrl = "http://localhost:80/WeddingSite/php/quickLogin.php";
@@ -48,6 +50,10 @@ function loginClick(e){
     //console.log("LOGIN2");
     
         var toAdd = new FormData(document.getElementById('formLog'));
+        console.log(toAdd);
+        console.log(toAdd.get("loginU"));
+        username = loginU.value;
+        password = loginP.value;
         toAdd.append("Login","Login");
         $.ajax({    
             url: setUrl,
@@ -89,10 +95,9 @@ function loginGD(data){
             });*/
             for(var j=0;j < received.length;j++){
                 var user = received[j];
-                tableData += '<tr><td><p><b><i id="del-' + user['user_id'] + '" group="delete" class="fa fa-close"></i></b></p>' + "</td><td>" + ((user['attending'] == '1')? 'attending' : 'not attending') + "</td><td>" + ((user['family'] == "1")? 'family': 'friend') + "</td><td>" + user['first_name'] + "</td><td>" + user['surname'] + "</td><td>" + user['cell'] + "</td><td>" + ((user['bran_acq'] == "1")? 'true' : 'false') + "</td><td>" + ((user['kaj_acq'] == "1")? 'true' : 'false') + "</td><td>" + user['comment_made'] + "</td><td>" + user['mail'] + "</td><td>" + user['number_children'] + "</td><td>" + user['plusones_first_name'] + "</td><td>" + user['plusones_surname'] + "</td><td>" + user['plusones_cell'] + "</td><td>" + user['plusones_mail'] + "</td><td>" + ((user['hurdee'] == "1")? 'attending' : 'not attending') + "</td><td>" + ((user['image_name'] != 'none')? '<img src="./uploads/' + user['image_name'] + '" class="w3-image w3-round" onclick="onImageClick(this)" alt=' + user['first_name'] + '>' : 'no picture') + "</td></tr>"
+                tableData += '<tr><td><p><b><i id="del-' + user['user_id'] + '" group="delete" class="fa fa-close"></i></b></p>' + "</td><td>" + ((user['attending'] == '1')? 'attending' : 'not attending') + "</td><td>" + ((user['family'] == "1")? 'family': 'friend') + "</td><td>" + user['first_name'] + "</td><td>" + user['surname'] + "</td><td>" + user['cell'] + "</td><td>" + ((user['bran_acq'] == "1")? 'true' : 'false') + "</td><td>" + ((user['kaj_acq'] == "1")? 'true' : 'false') + "</td><td>" + user['comment_made'] + "</td><td>" + user['mail'] + "</td><td>" + user['number_children'] + "</td><td>" + user['plusones_first_name'] + "</td><td>" + user['plusones_surname'] + "</td><td>" + user['plusones_cell'] + "</td><td>" + user['plusones_mail'] + "</td><td>" + ((user['hurdee'] == "1")? 'attending' : 'not attending') + "</td><td>" + ((user['image_name'] != 'none')? '<img src="./uploads/' + user['image_name'] + '" class="w3-image w3-round" onclick="onImageClick(this)" alt=' + user['first_name'] + '>' : 'no picture') + "</td></tr>";
                 $(document).on('click', '#del-' + user['user_id'], function(e){deleteTableEntry(e)});
-                
-                onsole.log($("#del-" + user['user_id']));
+                console.log($("#del-" + user['user_id']));
             }
             tableData += "</table>";
             document.getElementById('loginResponse').innerHTML = "";
@@ -100,7 +105,9 @@ function loginGD(data){
             
             }
             else{
+                document.getElementById('loginResponse').innerHTML = "";
                 console.log("Nothing to display");
+                displayMessage("Nothing to display");
             }
         }
     }
@@ -418,7 +425,10 @@ function onImageClick(element) {
 function RSVPClick() {
   document.getElementById("modal02").style.display = "block";
 }
-
+// Modal FAQ
+function FAQClick() {
+  document.getElementById("modal06").style.display = "block";
+}
 // Change style of navbar on scroll
 /*
 window.onscroll = function() {myFunction()};
@@ -449,10 +459,64 @@ function displayMessage(message){
 function deleteTableEntry(e){
     console.log("Delete Pressed");
     //console.log(this);
-    console.log(e);
-    console.log(e.type);
+    //console.log(e);
+    //console.log(e.type);
+    //console.log(e.currentTarget.id);
+    deleteUser(e.currentTarget.id,e);
 }
 
+function deleteUser(userId,e){
+        console.log('DELETING USER');
+        var setUrl = "http://localhost:80/WeddingSite/php/deleteUser.php";
+        if(server)
+            setUrl = "http://www.faulinginlove.co.za/php/deleteUser.php";
+        var refData = new FormData();
+        console.log(userId);
+        console.log(userId.substring(4,userId.length));
+        refData.append("Delete",userId.substring(4,userId.length));
+        console.log(username);
+        console.log(password);
+        refData.append("Username",username);
+        refData.append("Password",password);
+        $.ajax({
+        url: setUrl,
+        type: "POST",
+        data: refData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (data) {
+            ajaxDeletedUser(data,e);
+        },
+        error: ajaxError(e)
+    });
+}
+
+function ajaxDeletedUser(data,e){
+    console.log("ajaxDeletedUser");
+    
+    if(data == ""){
+        console.log("Nothing was returned");
+    }else if(data == null){
+        console.log("Null was returned");
+    }else{
+        console.log(data.trim());
+        var received = data.trim();
+        //console.log(received);
+        if(received == "FAIL"){
+            console.log("Failed to delete user");
+        }else{
+            if(received == '"Record deleted successfully"'){
+                console.log(received);
+                displayMessage(received);
+                loginClick(e);
+                refreshScreen(e);
+            }
+            else
+                console.log(received);
+        }
+    }
+}
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates

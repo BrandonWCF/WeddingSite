@@ -1,5 +1,5 @@
 <?php
-$server = 0;
+$server = 1;
 if($server){
 $origin = $_SERVER['HTTP_ORIGIN'];
 $pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
@@ -23,7 +23,7 @@ Class Mailer
 {
     public $server = 0;
 function sendMessage($name,$email,$message,$type){
-    if(!empty($name) && !empty($email) && !empty($message)){
+    if(!empty($name) && !empty($email) && !empty($message) && ($server)){
         require_once "Mail.php";
         $from = "faulinginlove Website <site@faulinginlove.co.za>";
         $to = "bwcfaul@gmail.com";

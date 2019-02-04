@@ -1,5 +1,5 @@
 <?php
-$server = 0;
+$server = 1;
 if($server){
 $origin = $_SERVER['HTTP_ORIGIN'];
 $pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
@@ -174,6 +174,24 @@ private $server = 0;
             }
             catch(PDOException $e) {
                 return "Error: " . $e->getMessage();
+            }
+        }
+        
+        function deleteUserFromDB($userId){
+            // sql to delete a record
+            try{
+                $sqlComment = "DELETE FROM comments WHERE user_id=".$userId;
+                $sqlPlusOne = "DELETE FROM plusones WHERE user_id=".$userId;
+                $sqlUser = "DELETE FROM users WHERE user_id=".$userId;
+                // use exec() because no results are returned
+                $this->connection->exec($sqlComment);
+                $this->connection->exec($sqlPlusOne);
+                $this->connection->exec($sqlUser);
+                return "Record deleted successfully";
+            }
+            catch(PDOException $e)
+            {
+                return $sql . "<br>" . $e->getMessage();
             }
         }
 }

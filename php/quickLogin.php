@@ -1,5 +1,5 @@
 <?php
-$server = 0;
+$server = 1;
 if($server){
 $origin = $_SERVER['HTTP_ORIGIN'];
 $pattern = '@^http://(www\.)?faulinginlove\.co\.za.*$@i';
