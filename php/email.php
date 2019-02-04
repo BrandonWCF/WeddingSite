@@ -21,7 +21,7 @@ require_once "Mail.php";
 $result = "EMPTY";
 Class Mailer
 {
-    public $server = 0;
+    public $server = 1;
 function sendMessage($name,$email,$message,$type){
     if(!empty($name) && !empty($email) && !empty($message) && ($server)){
         require_once "Mail.php";
